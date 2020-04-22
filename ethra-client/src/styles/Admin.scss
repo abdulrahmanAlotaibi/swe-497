@@ -1,0 +1,108 @@
+.admin-page {
+}
+
+.admin {
+  width: 77%;
+  margin: 3rem auto;
+  //   box-shadow: 0 1.2rem 2rem 0.2rem rgba(63, 63, 63, 0.2);
+  padding: 2rem;
+  &__primary-heading {
+    margin: 5rem 0rem;
+    text-align: center;
+  }
+  &__radio-list {
+    margin-bottom: 3rem;
+    display: flex;
+    list-style: none;
+
+    justify-content: center;
+    align-items: center;
+
+    button {
+      padding: 1.2rem 2rem;
+      outline: none;
+      background-color: #6c63ff;
+      color: #fff;
+      border: none;
+      margin-right: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  &__courses {
+    margin-top: 5rem;
+    list-style: none;
+    &-item {
+      //   background-color: pink;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.2s all ease-in-out;
+      &:hover {
+        // box-shadow: 0 1.2rem 2rem 0.2rem rgba(63, 63, 63, 0.2);
+        background-color: rgb(221, 220, 220);
+      }
+    }
+
+    &-name {
+      font-weight: 600;
+    }
+
+    &-edit-btn {
+    }
+
+    &-control-btn {
+      padding: 1rem 2rem;
+      & > * {
+        border: 0.1rem solid rgb(223, 25, 25);
+        color: rgb(223, 25, 25);
+        padding: 1.2rem 2rem;
+        outline: none;
+        margin-right: 2rem;
+        cursor: pointer;
+      }
+      .delete {
+
+      }
+      .edit{
+        border: 0.1rem solid #6c63ff;
+
+        color:#6c63ff;
+
+      }
+    }
+  }
+
+  &__stats {
+    list-style: none;
+    display: flex;
+    min-height: 30rem;
+    justify-content: space-between;
+    align-items: center;
+
+    &-primary-heading {
+      font-weight: 600;
+    }
+    li {
+      box-shadow: 0 1.2rem 2rem 0.2rem rgba(63, 63, 63, 0.2);
+      height: 20rem;
+      flex-basis: 30%;
+      text-align: center;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-name {
+      font-size: 2.6rem;
+      font-weight: 600;
+      display: block;
+    }
+    &-number {
+      font-size: 2.6rem;
+      font-weight: 600;
+    }
+  }
+}

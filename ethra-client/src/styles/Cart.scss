@@ -1,0 +1,116 @@
+$primary-color: #002333;
+$secondary-color: #00ff84;
+$white: #f4f4f4;
+@import "./App.scss";
+
+.cart-section {
+  min-height: 100vh;
+}
+
+.cart {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  * > * {
+    flex-basis: 50%;
+  }
+  &__list {
+    margin-top: 2rem;
+    list-style: none;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  &__name {
+    font-weight: bold;
+  }
+  @include respond(laptop) {
+    flex-direction: column;
+  }
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    @include respond(laptop) {
+      justify-content: center;
+      & > * {
+        flex-basis: 40%;
+      }
+    }
+  }
+  &__img {
+    width: 15%;
+    border-radius: 1rem;
+    @include respond(laptop) {
+      width: 30%;
+    }
+  }
+  &__price {
+    margin-top: -0.2rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  &__price-container {
+    flex-basis: 50%;
+
+    display: inline-flex;
+    align-items: center;
+    //   border: 1px solid red;
+    justify-content: flex-end;
+    & > * {
+    }
+  }
+  &__info {
+    display: inline-flex;
+    align-items: center;
+    & > * {
+      margin-right: 2rem;
+      flex-basis: 30%;
+    }
+  }
+  &__remove {
+    margin-left: 6rem;
+    padding: 0;
+    cursor: pointer;
+    & > * {
+      color: #3722d3;
+      font-size: 3rem;
+    }
+    @include respond(laptop) {
+      margin-left: 1rem;
+      flex-basis: 10%;
+    }
+  }
+
+  //   Checkout container
+  &__checkout {
+    flex-basis: 30%;
+    height: 30rem;
+    text-align: center;
+    margin-top: 7rem;
+    padding: 2rem;
+    & > * {
+      display: block;
+      margin-bottom: 1rem;
+    }
+  }
+  &__total-text {
+  }
+  &__total-price {
+    font-size: 3rem;
+  }
+  &__checkout-btn {
+    text-decoration: none;
+    padding: 0.7rem 2.4rem;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 0.2rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+  }
+}

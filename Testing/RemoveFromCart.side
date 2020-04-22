@@ -1,0 +1,174 @@
+{
+  "id": "e447ce3f-9e7f-434d-b63d-6a58d3ef9039",
+  "version": "2.0",
+  "name": "RemoveFromCart",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "f0444ac0-7a6c-4e16-a4e1-0cad135d3015",
+    "name": "Cart.js",
+    "commands": [{
+      "id": "85ccb843-d125-48eb-9c48-8540d90409d0",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e4e4eba1-bd10-4049-9f24-fc1701903745",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e9787c1f-2cfc-4af0-b685-383cdc55b621",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign In",
+      "targets": [
+        ["linkText=Sign In", "linkText"],
+        ["css=.signin-link", "css:finder"],
+        ["xpath=(//a[contains(text(),'Sign In')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/header/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/signin')])[2]", "xpath:href"],
+        ["xpath=//header/nav/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5332247b-627a-4c8f-9af9-dfa9248b2337",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "aaa@a.com"
+    }, {
+      "id": "9b46fe08-2c31-4cc3-90f4-4176b44d9248",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "2065a2af-cc8e-4c4b-aa68-cb9bc88fb785",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__submit",
+      "targets": [
+        ["css=.form__submit", "css:finder"],
+        ["xpath=//input[@value='Sign In']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3daadd07-a418-4192-af2c-aebae4e38962",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "21a89190-09aa-4953-b283-9250c06f7d5c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Courses",
+      "targets": [
+        ["linkText=Courses", "linkText"],
+        ["css=.nav__list > .nav__item:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Courses')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/header/nav/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/search')])[2]", "xpath:href"],
+        ["xpath=//header/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Courses')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc90a81b-0a1b-4849-b811-82a5f56fc675",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search__submit",
+      "targets": [
+        ["css=.search__submit", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f03d25d6-d94d-4ff1-8af6-8f67e38bb32c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.courses",
+      "targets": [
+        ["css=.courses", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a4ce0a0-7309-4eac-8189-c74bf875a1e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.course:nth-child(1) > .course__img",
+      "targets": [
+        ["css=.course:nth-child(1) > .course__img", "css:finder"],
+        ["xpath=//img[@alt='s']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/section/ul/a/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2efeb57c-8f22-4c28-be67-cea45a52a892",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f61b2ae-09b0-4c32-9e49-ff793ca00860",
+      "comment": "",
+      "command": "click",
+      "target": "css=.course-page-info__add-to-cart-btn",
+      "targets": [
+        ["css=.course-page-info__add-to-cart-btn", "css:finder"],
+        ["xpath=//div[@id='root']/div/section/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add to cart')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ddd777c0-4e8c-4105-8f1b-a8defb72b29c",
+      "comment": "",
+      "command": "click",
+      "target": "css=svg",
+      "targets": [
+        ["css=svg", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cf886c6c-97f5-4412-a2d8-af1c34639ad3",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f0444ac0-7a6c-4e16-a4e1-0cad135d3015"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}

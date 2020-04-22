@@ -1,0 +1,161 @@
+{
+  "id": "eb31de2f-0cb0-4781-a946-bff6ba51cb2f",
+  "version": "2.0",
+  "name": "MyCourses",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "629dad4d-d2ca-42a9-b6a2-08666b39df26",
+    "name": "StudentCourses.js",
+    "commands": [{
+      "id": "483150b3-f55e-402e-b9ac-cc006ffd138e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0be52adc-9e9b-4349-8cad-a71f1fc9a45a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "83e9770a-5717-4a6f-b09b-e16c39149153",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign In",
+      "targets": [
+        ["linkText=Sign In", "linkText"],
+        ["css=.signin-link", "css:finder"],
+        ["xpath=(//a[contains(text(),'Sign In')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/header/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/signin')])[2]", "xpath:href"],
+        ["xpath=//header/nav/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6db3c077-d3b8-4187-b6c3-7fcf23c88f4f",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "aaa@a.com"
+    }, {
+      "id": "4cb46271-f322-473c-b714-123fccf4d1f4",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "a2acc7a9-5629-4e3b-b4ae-7fdb3b87da0d",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ca14704-7f5f-4e77-b1a6-ccbd54a5db67",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-section",
+      "targets": [
+        ["css=.form-section", "css:finder"],
+        ["xpath=//div[@id='root']/div/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2519769c-7dc6-4303-99c2-94cc88b9bc83",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d88f19bb-18dd-4c70-b59e-6f0bc7ffd47a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-section",
+      "targets": [
+        ["css=.form-section", "css:finder"],
+        ["xpath=//div[@id='root']/div/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b2218be-63f5-41b2-86e2-1be18768549d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__submit",
+      "targets": [
+        ["css=.form__submit", "css:finder"],
+        ["xpath=//input[@value='Sign In']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96cb117e-be4a-4038-b45e-c3d33b1ec381",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d10b87f3-8a37-4f4f-bce5-0b2a6d345a8c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=My Courses",
+      "targets": [
+        ["linkText=My Courses", "linkText"],
+        ["css=div > .nav__item:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'My Courses')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/header/nav/ul/div/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/my-courses')]", "xpath:href"],
+        ["xpath=//div/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'My Courses')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f8e1ab51-0fb1-42cf-8a17-5cad658cc02a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["629dad4d-d2ca-42a9-b6a2-08666b39df26"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}

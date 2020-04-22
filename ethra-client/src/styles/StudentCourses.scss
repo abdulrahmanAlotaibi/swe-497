@@ -1,0 +1,16 @@
+.student-courses-section{
+    padding-top: 6rem;
+    &__primary-heading{
+        border-bottom: .5rem solid #6c63ff;
+        padding-bottom: 1.4rem;
+        display: inline-block;
+        margin-left:  50%;
+        transform: translateX(-50%);
+        
+    }
+}
+
+.student-courses{
+    margin-top: 8rem;
+    
+}

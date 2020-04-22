@@ -1,0 +1,104 @@
+$primary-color: #002333;
+$secondary-color: #00ff84;
+$white: #f4f4f4;
+@import "./App.scss";
+
+.hero-section {
+  min-height: 100vh;
+  background-color: #002333;
+  padding-top: 20rem;
+  position: relative;
+  @include respond(laptop) {
+    min-height: 110vh;
+  }
+}
+.hero-background {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 60%;
+  height: 60%;
+  height: 50vh;
+  background-image: url("../img/math.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 36%;
+  animation: moveInRight 1s ease-in-out;
+
+  @include respond(laptop) {
+    background-position: bottom;
+    display: inline-block;
+    top: 40%;
+    right: 50%;
+    width: 80%;
+    transform: translateX(50%);
+    animation: none;
+  }
+  @include respond(tablet-l) {
+    width: 110%;
+    top: 40%;
+  }
+  @include respond(tablet-m) {
+    width: 110%;
+    top: 29%;
+  }
+  @include respond(mobile-l) {
+    width: 160%;
+    top: 52%;
+
+  }
+
+}
+.heading-container {
+  text-align: left;
+  color: #fefefe;
+  padding: 1rem;
+  margin-left: 10rem;
+  display: block;
+  animation: moveInLeft 1s ease-in-out;
+  @include respond(laptop) {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: -10%;
+    text-align: center;
+    animation: none;
+  }
+  .heading-primary {
+    text-align: left;
+    font-weight: 500;
+    @include respond(laptop) {
+      text-align: center;
+    }
+    &__line {
+      border: none;
+      text-align: center;
+
+      display: inline-block;
+      height: 0.4rem;
+      background-color: $secondary-color;
+      width: 14.5%;
+      animation: moveInBottom 1s ease-in-out;
+      @include respond(laptop) {
+        text-align: center;
+        animation: none;
+        width: 55%;
+      }
+    }
+
+    &--main {
+      font-size: 6rem;
+      display: block;
+      @include respond(laptop-l) {
+        font-size: 4rem;
+      }
+    }
+    &--sub {
+      font-size: 3.2rem;
+      display: block;
+      margin-bottom: 0.1rem;
+      @include respond(laptop-l) {
+        font-size: 2.3rem;
+      }
+    }
+  }
+}

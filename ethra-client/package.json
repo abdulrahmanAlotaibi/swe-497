@@ -1,0 +1,56 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "create-react-app": "^3.3.0",
+    "flv.js": "^1.5.0",
+    "hls": "^0.0.1",
+    "hls.js": "^0.13.2",
+    "lodash": "^4.17.15",
+    "node-sass": "^4.13.0",
+    "react": "^16.12.0",
+    "react-country-region-selector": "^1.4.7",
+    "react-dom": "^16.12.0",
+    "react-hls": "^0.0.8",
+    "react-icons": "^3.8.0",
+    "react-phone-input-2": "^2.11.0",
+    "react-player": "^1.15.3",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "react-stripe-checkout": "^2.6.3",
+    "react-stripe-elements": "^6.1.1",
+    "redux": "^4.0.1",
+    "redux-form": "^7.4.2",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^7.0.3",
+    "video.js": "^7.7.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {}
+}

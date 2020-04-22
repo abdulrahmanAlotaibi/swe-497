@@ -1,0 +1,39 @@
+.loading-spinner {
+  text-align: center;
+//   background-color: pink;
+  width: 100%;
+//   margin-left: 50%;
+//   transform: translateX(-50%);
+margin-top: 8rem;
+  &__icon {
+    //   margin: 0 auto;
+    display: inline-block;
+    border: 1.1rem solid #00ff84;
+    width: 8rem;
+    height: 8rem;
+    border-top-color: #f4f4f4;
+    border-bottom-color: #00ff84;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

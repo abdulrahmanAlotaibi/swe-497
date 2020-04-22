@@ -1,0 +1,181 @@
+{
+  "id": "85abc2e2-154c-4ed1-8ae3-69c909bb0129",
+  "version": "2.0",
+  "name": "EditCourse",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "5c023fd6-96a5-464c-803b-ee0515cf9441",
+    "name": "CourseModefication.js",
+    "commands": [{
+      "id": "338aaaf7-7e48-426e-b8e4-4e5a71d211ed",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cf86b19a-b89f-4afe-a4b9-62fe1df1dae2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x680",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff491c03-e3f5-42cd-bb6a-58fad54c5f20",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Sign In",
+      "targets": [
+        ["linkText=Sign In", "linkText"],
+        ["css=.signin-link", "css:finder"],
+        ["xpath=(//a[contains(text(),'Sign In')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/header/nav/ul/li[3]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/signin')])[2]", "xpath:href"],
+        ["xpath=//header/nav/ul/li[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3103a9ba-b6d6-46dd-9a0a-e3592f286e62",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "aaa@a.com"
+    }, {
+      "id": "13fbfd8b-d5b9-448d-8834-be69cea26ac2",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "aaaaaa"
+    }, {
+      "id": "170c2936-5a0b-44fd-84bd-e9b203ba25a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.signup-page__type-item:nth-child(2) .signup-page__radio",
+      "targets": [
+        ["css=.signup-page__type-item:nth-child(2) .signup-page__radio", "css:finder"],
+        ["xpath=//input[@value='tutor']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/ul/li[2]/label/input", "xpath:idRelative"],
+        ["xpath=//li[2]/label/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81088f64-ca4a-47af-b7ac-cc208a29566e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form__submit",
+      "targets": [
+        ["css=.form__submit", "css:finder"],
+        ["xpath=//input[@value='Sign In']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/section/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4fe63eb-1eab-4351-b3b2-561d5f836038",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(4) svg",
+      "targets": [
+        ["css=div:nth-child(4) svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "61debf99-28a6-4cb2-b345-84cb2202b936",
+      "comment": "",
+      "command": "click",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "accf4718-0a64-428a-a410-9f41cf0f23ec",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "JavaScript"
+    }, {
+      "id": "9c366729-a1e2-4ee0-8ffc-8aff02392d4f",
+      "comment": "",
+      "command": "click",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["css=#description", "css:finder"],
+        ["xpath=//input[@id='description']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbc4f6a0-a708-4f96-a920-fde18d3c193f",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["css=#description", "css:finder"],
+        ["xpath=//input[@id='description']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/form/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "JavaScript"
+    }, {
+      "id": "b4c3c1ab-99de-4846-b584-2104eedc39ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.profile-form__submit",
+      "targets": [
+        ["css=.profile-form__submit", "css:finder"],
+        ["xpath=//input[@value='Save']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/div/form/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0a9435b-f78e-4167-b782-94928c4269c2",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,837.3333129882812)",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "10130189-116d-4c53-ab7f-db369e080108",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5c023fd6-96a5-464c-803b-ee0515cf9441"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}

@@ -1,0 +1,105 @@
+{
+  "id": "de977e96-e6ca-4d58-ae68-c4b807635586",
+  "version": "2.0",
+  "name": "SearchCours",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "fd9160b9-448b-48b9-8cf7-7b4c64fbdecf",
+    "name": "Search.js",
+    "commands": [{
+      "id": "55ea45a9-e11d-4f30-9fcd-3f88bb5181ac",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8d513773-785f-4726-9215-ba5fb330f9e0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1268x674",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a8ee8c52-9f9f-4e62-8c70-530028f107fa",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Courses",
+      "targets": [
+        ["linkText=Courses", "linkText"],
+        ["css=.nav__item:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Courses')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/header/nav/ul/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/search')])[2]", "xpath:href"],
+        ["xpath=//header/nav/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Courses')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d9f91bb2-2a29-415e-b5a3-36e5681b4a2c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search__input",
+      "targets": [
+        ["css=.search__input", "css:finder"],
+        ["xpath=//input[@value='']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/form/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d968175e-2406-44d7-84b8-84d4b497ea1f",
+      "comment": "",
+      "command": "type",
+      "target": "css=.search__input",
+      "targets": [
+        ["css=.search__input", "css:finder"],
+        ["xpath=//input[@value='a']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/main/form/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": "a"
+    }, {
+      "id": "5ae16097-0864-4176-8baf-1187b50e3e71",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search__submit",
+      "targets": [
+        ["css=.search__submit", "css:finder"],
+        ["xpath=//div[@id='root']/div/main/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Search')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98b5761c-60f5-48b4-9639-17fe67fc36b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.course__img",
+      "targets": [
+        ["css=.course__img", "css:finder"],
+        ["xpath=//img[@alt='s']", "xpath:img"],
+        ["xpath=//div[@id='root']/div/main/section/ul/a/img", "xpath:idRelative"],
+        ["xpath=//img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e488759-c4b5-490c-9347-e5c5dffd4a3c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "a2d45eaa-9539-4c29-9ba0-ac8d36f18b1f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["fd9160b9-448b-48b9-8cf7-7b4c64fbdecf"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}

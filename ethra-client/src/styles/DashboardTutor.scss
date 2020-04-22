@@ -1,0 +1,62 @@
+.dashboard-tutor-page {
+  min-height: 100vh;
+}
+.dashboard-tutor {
+}
+.stream-btn {
+  background-color: #6c63ff;
+  color: #fff;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.tutor-courses {
+  margin: 13rem auto;
+  width: 80%;
+  margin-left: 52%;
+  transform: translateX(-50%);
+
+  &__primary-heading {
+    border-bottom: 1px solid grey;
+    padding-bottom: 2rem;
+    width: 50%;
+    margin-bottom: 5rem;
+  }
+  &__list {
+    list-style: none;
+    width: 50%;
+  }
+  &__item {
+    display: flex;
+    margin: 2rem 0rem;
+    min-height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__edit-btn {
+    font-size: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: #6c63ff;
+  }
+
+  .create-course-btn {
+    display: inline-block;
+    margin-top: 5rem;
+    margin-top: 13rem;
+
+    text-decoration: none;
+    color: #6c63ff;
+    border-bottom: 0.2rem solid #002333;
+    margin-right: 4rem;
+  }
+}

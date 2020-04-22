@@ -1,0 +1,138 @@
+.stream-dashboard {
+  .stream {
+    width: 80%;
+    margin: 9rem auto;
+
+    &__form {
+      margin: 4rem auto;
+      width: 30%;
+
+      &-input {
+        height: 3.9rem;
+        border: 1px solid rgba(128, 128, 128, 0.212);
+        border-radius: 0.2rem;
+        width: 100%;
+        padding: 1rem 0.5rem;
+        background-color: #e8f0fe5b !important;
+        display: block;
+      }
+
+      &-label {
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: rgb(66, 66, 66);
+        margin-bottom: 2rem;
+        display: block;
+      }
+
+      &-upload {
+        display: block;
+        background-color: #342890;
+        color: #fff;
+        border: none;
+        margin-top: 2rem;
+        padding: 1.2rem 2rem;
+        border-radius: 0.2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/// ============================
+.qa {
+  &__list {
+    list-style: none;
+    width: 70%;
+    margin-left: 50%;
+    transform: translate(-50%);
+    list-style: none;
+    margin-top: 9rem;
+  }
+
+  &__item {
+    min-height: 24rem;
+    width: 100%;
+    border-top: 1px solid grey;
+    padding: 2rem;
+  }
+
+  &__replies {
+    margin-top: 3rem;
+    display: inline-block;
+  }
+
+  &__author {
+    font-weight: 600;
+    display: block;
+  }
+  &__comment {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    height: 10rem;
+  }
+  &__reply-icon-container {
+    margin-top: 2rem;
+    display: flex;
+    margin: 0.4rem 0rem;
+    align-items: center;
+    cursor: pointer;
+    color: #342890;
+  }
+
+  &__reply-icon {
+    color: #002333;
+    font-size: 2.6rem;
+    margin-right: 1rem;
+    color: #342890;
+  }
+}
+
+.manager {
+
+  &__input {
+    height: 3.9rem;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    border-radius: 0.2rem;
+    padding: 1rem 0.5rem;
+    // background-color: #e8f0fe5b !important;
+    &:focus {
+      border: 1px solid #3722d3;
+    }
+    
+  }
+  &__edit {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1rem 2rem;
+  }
+
+  &__submit {
+    border: 0.1rem solid rgb(70, 156, 12);
+    color: rgb(70, 156, 12);
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 1rem 2rem;
+
+  }
+
+  &__cancel {
+    border: 0.1rem solid rgb(223, 25, 25);
+    color: rgb(223, 25, 25);
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding: .9rem 2rem;
+    margin: 0rem 1rem;
+  }
+}

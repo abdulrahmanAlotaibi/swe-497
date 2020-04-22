@@ -1,0 +1,52 @@
+.comment {
+  width: 80%;
+  margin: 6rem auto;
+  &__author {
+    color: #342890;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: block;
+  }
+
+  &__text {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 6.5rem;
+  }
+}
+
+.reply {
+  &__label {
+    display: block;
+    color: #342890;
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    resize: none;
+    height: 13.9rem;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    border-radius: 0.2rem;
+    padding: 1rem 0.5rem;
+    background-color: #e8f0fe5b !important;
+    &:focus {
+      border: 1px solid #342890;
+    }
+  }
+
+  &__submit {
+    display: block;
+    background-color: #342890;
+    color: #fff;
+    border: none;
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+  }
+
+
+  
+}
+
