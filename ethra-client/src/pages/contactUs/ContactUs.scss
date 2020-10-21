@@ -1,0 +1,30 @@
+.message-success-section{
+    min-height: 100vh;
+    padding-top: 9rem;
+
+}
+.message-success{
+    text-align: center;
+    animation: moveInBottom .8s ease-in-out;
+
+    &__icon{
+        color: #40D5A1;
+        font-size: 5rem;
+        margin: 3rem 0;
+        width: 10%;
+        background-color: #002230 ;
+        // box-shadow: 0 3rem 2rem .3rem rgba(63, 63, 63, 0.2);
+        border-radius: 2rem;
+         
+    }
+    &__secondary-heading{
+        align-items: center;
+        
+        
+        &-thumsup{
+            margin-top: -3rem;
+            display: inline-block;
+            // background-color: red;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+@import "App.scss";
+
+
+.courses {
+  padding: 1rem;
+  min-height: 50vh;
+  margin-top: 8rem;
+  &__primary-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+ 
+
+  .courses__list {
+    margin-top: 9rem;
+    width: 100rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    min-height: 70vh;
+    list-style: none;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 6rem ;
+    grid-auto-flow: row;
+    @include respond(laptop){
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, auto);      
+    }
+  }
+  .course {
+    text-decoration: none;
+    width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 0 0.9rem 0.9rem 0.9rem;
+    box-shadow: 0 0.8rem 0.6rem 0 rgba(63, 63, 63, 0.2);
+    height: 30rem;
+    text-align: left;
+    text-decoration: none;
+    color: #002333;
+    height: 40rem;
+    transition: 0.3s all ease-in-out;
+
+    @include respond(laptop){
+      width: 40%;     
+    }
+    &:hover {
+      box-shadow: 0 1.2rem 2rem 0.2rem rgba(63, 63, 63, 0.2);
+    }
+
+    &__img {
+      width: 100%;
+      height: 50%;
+      display:inline-block;
+
+      border-radius: 0.9rem 0.9rem 0 0rem;
+      margin-bottom: 1rem;
+      
+    }
+
+    &__name {
+      display: block;
+      font-weight: 600;
+      padding: 0 2rem;
+      margin-bottom: 3rem;
+    }
+
+    &__author {
+      display: block;
+      padding: 0 2rem;
+    }
+    &__rating {
+      padding: 0 2rem;
+      color: #dbc026;
+    }
+
+    &__price {
+      display: block;
+      padding: 0 2rem;
+    }
+  }
+

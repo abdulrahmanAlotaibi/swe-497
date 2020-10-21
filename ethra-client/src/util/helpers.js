@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { IoIosStar } from "react-icons/io";
 
+/**
+ * @param {string} rating
+ * @desc returns the markup of course stars
+ */
 export function getRatingJSX(rating) {
   const countStars = Array.apply(null, Array(parseInt(rating)));
 
-  
-  if (countStars.length === 0 ) {
+  if (countStars.length === 0) {
     return (
       <>
         <IoIosStar className="stars-grey" />
@@ -23,8 +26,10 @@ export function getRatingJSX(rating) {
   return rendredStars;
 }
 
+/**
+ * @desc returns the :id paramter from the URL
+ */
 export function getUrlId() {
-  // Get URL
   const url = window.location.href.split("/");
   const id = url[4];
   return id;

@@ -1,0 +1,83 @@
+$primary-color: #002333;
+$secondary-color: #40D5A1;
+$white: #f4f4f4;
+.header {
+  padding: 4rem;
+  background-color: $primary-color;
+
+  .signup-link {
+    background-color: $secondary-color;
+    color: $primary-color;
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    &:visited,
+    &:link,
+    &:focus {
+      color: $primary-color;
+    }
+  }
+  .signin-link {
+    border: 0.2rem solid $secondary-color;
+    padding: 0.8rem 2.5rem;
+    display: inline-block;
+    width: 100%;
+    border-radius: 0.2rem;
+    &:visited,
+    &:link,
+    &:focus {
+      color: #fefefe;
+    }
+  }
+}
+
+.logo {
+  text-decoration: none;
+  color: #fefefe;
+  font-size: 4rem;
+}
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

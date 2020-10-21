@@ -1,0 +1,23 @@
+.signup-page {
+  min-height: 90vh;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+}
+
+.signup-page {
+
+  &__type-list {
+    text-align: center;
+    margin-top: 3rem;
+
+    & > * {
+      display: inline-block;
+      margin-right: 2rem;
+    }
+  }
+  &__type-item {
+  }
+  &__radio {
+    margin-right: 1rem;
+  }
+}

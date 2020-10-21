@@ -1,0 +1,92 @@
+/*
+  - Desc: Styles for student profile and tutor.
+*/
+@import "App.scss";
+
+.profile-section {
+  min-height: 90vh;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
+}
+
+.profile {
+  width: 80%;
+  margin: 4rem auto;
+
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  @include respond(laptop) {
+    flex-direction: column;
+  }
+  &-form {
+    flex-basis: 60%;
+
+    padding: 3rem;
+    display: inline-block;
+    text-align: left;
+    @include respond(laptop){
+      margin-left: 50%;
+      transform: translateX(-50%);
+    }
+    & > * {
+      display: block;
+      margin-top: 1rem;
+    }
+    &__label {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: rgb(66, 66, 66);
+    }
+    &__input {
+      height: 4.2rem;
+      width: 90%;
+      border: 1px solid rgba(128, 128, 128, 0.212);
+      border-radius: 0.2rem;
+      padding: 1rem 0.5rem;
+      background-color: #e8f0fe5b;
+      &:focus {
+        border: 1px solid #3722d3;
+      }
+    }
+    &__submit {
+      font-size: 1.8rem;
+      margin-top: 3rem;
+      width: 90%;
+
+      padding: 0.7rem 2.4rem;
+      background-color: #40D5A1;
+      font-weight: 500;
+      color: #002333;
+      border: none;
+      cursor: pointer;
+      border-radius: 0.2rem;
+    }
+  }
+
+  &-menu {
+    flex-basis: 30%;
+    // background-color: #002333;
+    // color: $white;
+    border-right: 1px solid grey;
+    @include respond(laptop) {
+      border-right: none;
+      border-bottom: 1px solid grey;
+      padding-bottom: 7rem;
+    }
+    &__list {
+      list-style: none;
+      margin-top: 4rem;
+    }
+    &__img {
+      margin-top: 3rem;
+      width: 20rem;
+      height: 20rem;
+      border-radius: 50%;
+    }
+    &__item {
+      margin-top: 4rem;
+      cursor: pointer;
+    }
+  }
+}

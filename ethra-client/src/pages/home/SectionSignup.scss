@@ -1,0 +1,63 @@
+$primary-color: #002333;
+$secondary-color: #40D5A1;
+$white: #f4f4f4;
+@import "App.scss";
+
+.signup {
+  height: 60vh;
+  &__list {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  
+    @include respond(laptop){
+      flex-direction: column;
+      
+    }
+  }
+
+  &__item {
+    color: #fefefe;
+    height: 100%;
+    flex-basis: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &--left {
+      background-color: $primary-color;
+    }
+
+    &--right {
+      background-color: $primary-color;
+    }
+  }
+  &__text-box {
+    text-align: center;
+  }
+  &__primary-heading {
+    font-weight: 500;
+  }
+  &__description {
+    display: block;
+    margin-top: 1rem;
+    width: 80%;
+    margin: 1.5rem auto;
+  }
+
+  &__btn {
+    display: inline-block;
+    margin-top: 3rem;
+    text-decoration: none;
+    padding: 1.1rem 2.2rem;
+    font-weight: 600;
+    &--student {
+      color: #002333;
+      background-color: #40D5A1;
+    }
+    &--tutor {
+      color: #002333;
+      background-color: #40D5A1;
+    }
+  }
+}
