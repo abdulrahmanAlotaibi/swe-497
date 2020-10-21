@@ -1,5 +1,5 @@
-const Tutor = require("../model/tutor");
-const Course = require("../model/course");
+const Tutor = require("../model/Tutor");
+const Course = require("../model/Course");
 
 exports.getTutor = async (req, res) => {
   try {

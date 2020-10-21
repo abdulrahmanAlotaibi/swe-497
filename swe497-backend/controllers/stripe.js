@@ -1,6 +1,6 @@
-const Course = require("../model/course");
-const Tutor = require("../model/tutor");
-const Student = require("../model/student");
+const Course = require("../model/Course");
+const Tutor = require("../model/Tutor");
+const Student = require("../model/Student");
 const stripe = require("stripe")("sk_test_YY2GYcqE6R2Son25MdpBQXf8002wF8YbGa");
 const { uuid } = require("uuidv4");
 const jwt = require("jsonwebtoken");

@@ -7,10 +7,6 @@ const stripeController = require("../controllers/stripe");
 
 const stripeRouter = express.Router();
 
-// stripeRouter
-//   .route("/api/customer/create")
-//   .post(stripeController.createCustomer);
-
 stripeRouter
   .route("/api/customer/subscribe")
   .post(authController.protect("tutor"), stripeController.subscribe);

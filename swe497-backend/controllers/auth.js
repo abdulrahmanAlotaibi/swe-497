@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const multer = require("multer");
 const sharp = require("sharp");
-const Student = require("../model/student");
-const Tutor = require("../model/tutor");
+const Student = require("../model/Student");
+const Tutor = require("../model/Tutor");
 const { promisify } = require("util");
 
 const imageStorage = multer.memoryStorage();
