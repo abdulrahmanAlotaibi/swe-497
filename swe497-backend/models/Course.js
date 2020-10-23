@@ -5,6 +5,10 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: [true, "Course must have a name"],
   },
+  description: {
+    type: String,
+    required: [true, "Course must have a description"],
+  },
   tutor: {
     type: Schema.Types.ObjectId,
     ref: "Tutor",
@@ -21,34 +25,48 @@ const CourseSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: [true, "Course must have a price"],
+    currency: {
+      type: String,
+      default: "SR",
+      enum: ["SR", "USD"],
+    },
   },
   rating: {
     type: Number,
     default: 0,
     max: 5,
   },
-  description: {
-    type: String,
-    required: [true, "Course must have a description"],
-  },
   startDate: {
     type: Date,
     default: Date.now(),
   },
-  // todo: Make seperate schema for it
-  category: {
-    type: String,
-    required: [true, "Course must have a category"],
-  },
-  // todo: Make seperate schema for it
-  institution: {
-    type: String,
-    required: [true, "Course must have an institution name"],
-  },
-  chapters: [Object],
+  chapters: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Chapter",
+    },
+  ],
   isSuspended: {
     type: Boolean,
     default: false,
+  },
+  discount: {
+    type: Number,
+    min: 0,
+  },
+  institution: {
+    type: Schema.Types.ObjectId,
+    ref: "Institution",
+    required: [true, "Course must have an institution"],
+  },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+    required: [true, "Course must have a category"],
+  },
+  tags: {
+    type: String,
+    required: [true, "Course must have tags for metadata"],
   },
 });
 

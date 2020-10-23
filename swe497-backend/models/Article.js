@@ -1,14 +1,19 @@
 const mongoose = require("mongoose");
 
 const ArticleSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-      },
-      course: {
-        type: Schema.Types.ObjectId,
-        ref: "Course",
-      },
-      // FIXME: change where to store the videos
-      content: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  course: {
+    type: Schema.Types.ObjectId,
+    ref: "Course",
+  },
+  content: {
+    type: String,
+    required: true,
+  },
 });
+
+module.exports = mongoose.model("Article", ArticleSchema);
+

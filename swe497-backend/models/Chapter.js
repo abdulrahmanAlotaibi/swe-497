@@ -18,4 +18,4 @@ const ChapterSchema = new mongoose.Schema({
   ],
 });
 
-// content ==> video 
+module.exports = Chapter = mongoose.model("Chapter", ChapterSchema);

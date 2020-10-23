@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+// todo : add lecture schema
 const videoSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -9,8 +9,10 @@ const videoSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: "Course",
   },
-  // FIXME: change where to store the videos
-  content: String,
+  content: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Video", videoSchema);

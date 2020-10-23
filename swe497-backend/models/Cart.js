@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const CartSchema = new mongoose.Schema({
-  owner: {
+  customerId: {
     type: Schema.Types.ObjectId,
     ref: "Student",
   },
@@ -11,6 +11,13 @@ const CartSchema = new mongoose.Schema({
       ref: "Course",
     },
   ],
-  // todo: Add TaxRate
+  total: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  taxRate: {
+    type: Number,
+  },
 });
 module.exports = Cart = mongoose.model("Cart", CartSchema);
