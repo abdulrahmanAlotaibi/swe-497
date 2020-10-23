@@ -47,12 +47,12 @@ export default class extends Component {
   };
 
   handleQuestionSubmit = async () => {
-     const { token, role, name, isBanned, id } = JSON.parse(
+    const { token, role, name, isBanned, id } = JSON.parse(
       window.localStorage.getItem("account")
     );
     try {
       const { text } = this.state;
-      const author = name
+      const author = name;
       const { id } = this.props.match.params;
       const newComment = await axios.post(
         `http://localhost:8000/course/videos/reply/post-comment/${id}`,
@@ -82,40 +82,43 @@ export default class extends Component {
     const renderedReplies = replies.map((reply) => (
       <li className="qa__item" key={reply._id}>
         <div>
-          <span className="qa__author">{reply.author}</span>
-          <span className="qa__comment">{reply.text}</span>
+          <span className="qa__author"> {reply.author} </span>{" "}
+          <span className="qa__comment"> {reply.text} </span>{" "}
           <div
             className="qa__reply-icon-container"
             onClick={this.replyToComment.bind(this, reply._id)}
           >
             <IoIosChatbubbles className="qa__reply-icon" />
-            <span className="replies-list-span">reply</span>
-            <span className="replies-list-numbers">{`replies: ${reply.repliesId.length}`}</span>
-          </div>
-        </div>
+            <span className="replies-list-span"> reply </span>{" "}
+            <span className="replies-list-numbers">
+              {" "}
+              {`replies: ${reply.repliesId.length}`}{" "}
+            </span>{" "}
+          </div>{" "}
+        </div>{" "}
       </li>
     ));
     return (
       <section className="comment">
         <div>
-          <span className="comment__author">{rootComment.author}</span>
-          <p className="comment__text">{rootComment.text}</p>
-        </div>
+          <span className="comment__author"> {rootComment.author} </span>{" "}
+          <p className="comment__text"> {rootComment.text} </p>{" "}
+        </div>{" "}
         <div className="reply">
-          <label className="reply__label">Add Reply</label>
+          <label className="reply__label"> Add Reply </label>{" "}
           <textarea
             className="reply__input"
             value={text}
             type="text"
             onChange={this.handleInputChange}
-          />
+          />{" "}
           <button className="reply__submit" onClick={this.handleQuestionSubmit}>
-            Reply
-          </button>
-        </div>
+            Reply{" "}
+          </button>{" "}
+        </div>{" "}
         <div className="qa">
-          <ul className="qa__list">{renderedReplies}</ul>
-        </div>
+          <ul className="qa__list"> {renderedReplies} </ul>{" "}
+        </div>{" "}
       </section>
     );
   }

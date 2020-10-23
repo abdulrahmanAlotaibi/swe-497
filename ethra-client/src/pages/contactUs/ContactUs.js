@@ -11,7 +11,7 @@ class ContactUs extends Component {
       email: "",
       subject: "",
       message: "",
-      isSumbit: false
+      isSumbit: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFormChange = this.handleFormChange.bind(this);

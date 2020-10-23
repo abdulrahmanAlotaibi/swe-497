@@ -11,7 +11,7 @@ class Cart extends Component {
     this.state = {
       courses: [],
       totalPrice: 0,
-      cartEmpty: false
+      cartEmpty: false,
     };
     this.getCart = this.getCart.bind(this);
   }
@@ -28,7 +28,7 @@ class Cart extends Component {
         "http://localhost:8000/stripe/api/checkout-session",
         { token, price: this.state.totalPrice, courses: this.state.courses },
         {
-          headers: { authorization: `Bearer ${cachedToken}` }
+          headers: { authorization: `Bearer ${cachedToken}` },
         }
       );
       this.props.history.push("/my-courses");
@@ -42,24 +42,24 @@ class Cart extends Component {
       const token = JSON.parse(window.localStorage.getItem("token"));
       console.log("Cart.js token: ", token);
       const res = await axios.get("http://localhost:8000/course/cart", {
-        headers: { authorization: `Bearer ${token}` }
+        headers: { authorization: `Bearer ${token}` },
       });
       const { courses, totalPrice } = res.data.data;
       this.setState({ courses, totalPrice, cartEmpty: false });
     } catch (err) {
       if (err.response.data.message === "There are no courses in the cart") {
         this.setState(() => ({
-          cartEmpty: true
+          cartEmpty: true,
         }));
       }
     }
   }
 
-  removeCourse = async id => {
+  removeCourse = async (id) => {
     try {
       const token = JSON.parse(window.localStorage.getItem("token"));
       await axios.delete(`http://localhost:8000/course/cart/${id}`, {
-        headers: { authorization: `Bearer ${token}` }
+        headers: { authorization: `Bearer ${token}` },
       });
       this.getCart();
     } catch (err) {
@@ -74,7 +74,7 @@ class Cart extends Component {
       const res = await axios.get(
         `http://localhost:8000/stripe/api/checkout-session`,
         {
-          headers: { authorization: `Bearer ${token}` }
+          headers: { authorization: `Bearer ${token}` },
         }
       );
     } catch (err) {
@@ -85,21 +85,21 @@ class Cart extends Component {
   render() {
     if (this.state.cartEmpty) {
       return (
-        <h1 style={{ textAlign: "center", marginTop: "2rem" }}>Empty Cart</h1>
+        <h1 style={{ textAlign: "center", marginTop: "2rem" }}> Empty Cart </h1>
       );
     }
     if (!this.state.courses || Object.keys(this.state.courses).length === 0) {
       return <LoadingSpinner />;
     }
-    const renderedCourses = this.state.courses.map(course => {
+    const renderedCourses = this.state.courses.map((course) => {
       return (
         <li key={course._id} clssName="cart__item">
           <div className="cart__info">
             {/* <img className="cart__img" src="img/p1.jpg" /> */}
-            <span className="cart__name">{course.name}</span>
+            <span className="cart__name"> {course.name} </span>
           </div>
           <div className="cart__price-container">
-            <span className="cart__price">{`${course.price} SR`}</span>
+            <span className="cart__price"> {`${course.price} SR`} </span>
             <span className="cart__remove">
               <IoIosTrash onClick={this.removeCourse.bind(this, course._id)} />
             </span>
@@ -110,10 +110,10 @@ class Cart extends Component {
     return (
       <section className="cart-section">
         <div className="cart">
-          <ul className="cart__list">{renderedCourses}</ul>
+          <ul className="cart__list"> {renderedCourses} </ul>
           <div className="cart__checkout">
-            <span className="cart__total-text">Total:</span>
-            <span className="cart__total-price">{this.state.totalPrice}</span>
+            <span className="cart__total-text"> Total: </span>
+            <span className="cart__total-price"> {this.state.totalPrice} </span>
             <StripeCheckout
               stripeKey="pk_test_U8jQFnCO1xQIuYClxSYZg3cy00aH73XkQu"
               token={this.handleToken}
@@ -124,8 +124,8 @@ class Cart extends Component {
               shippingAddress
             />
             {/* <Link className="cart__checkout-btn" to="/stripe-cart">
-              Checkout
-            </Link> */}
+                              Checkout
+                            </Link> */}
             {/* <button onClick={this.checkout}>Checkout</button> */}
           </div>
         </div>

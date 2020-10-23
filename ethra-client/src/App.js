@@ -79,13 +79,12 @@ function App() {
             (props) => {
                 return ( <
                     MyContext.Consumer > {
-                        (context) => ( <
-                            >
+                        (context) => ( < >
                             <
                             Header context = { context }
-                            /> <
+                            />  <
                             CommentPage context = { context } {...props }
-                            /> <
+                            />  <
                             Footer / >
                             <
                             />
@@ -107,8 +106,7 @@ function App() {
                             >
                             { /* <Header context={context} /> */ } <
                             Subscription context = { context } {...props }
-                            /> { / * < Footer / > * / } < /
-                            >
+                            /> { / * < Footer / > * / } < / >
                         )
                     } <
                     /MyContext.Consumer>
