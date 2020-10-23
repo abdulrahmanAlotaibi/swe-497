@@ -6,30 +6,11 @@ import {
   UPDATE_INPUT,
   tutorSignupState,
   signupReducer,
+  handleFormChange,
 } from "pages/signup/util";
 
 function TutorSignup({ createAccount }) {
   const [state, dispatch] = useReducer(signupReducer, tutorSignupState);
-
-  const handleFormChange = (evt) => {
-    dispatch({
-      type: UPDATE_INPUT,
-      payload: {
-        key: evt.target.name,
-        value: evt.target.value,
-      },
-    });
-  };
-
-  const handlePhoneNumberChange = (phoneNumber) => {
-    dispatch({
-      type: UPDATE_INPUT,
-      payload: {
-        key: "phoneNumber",
-        value: phoneNumber,
-      },
-    });
-  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -55,7 +36,7 @@ function TutorSignup({ createAccount }) {
         autoFocus={true}
         required={true}
         label="Full Name"
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <TextField
@@ -67,7 +48,9 @@ function TutorSignup({ createAccount }) {
         label="Email address"
         type="email"
         helperText="We'll never share your email."
-        onChange={handleFormChange}
+        onChange={(evt) =>
+          handleFormChange(evt.target.name, evt.target.value.value)
+        }
       />
 
       <TextField
@@ -79,7 +62,7 @@ function TutorSignup({ createAccount }) {
         aria-describedby="password"
         fullWidth={true}
         required={true}
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <TextField
@@ -91,7 +74,7 @@ function TutorSignup({ createAccount }) {
         required={true}
         type="password"
         label="Confirm Password"
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <MuiPhoneNumber
@@ -99,7 +82,7 @@ function TutorSignup({ createAccount }) {
         defaultCountry={"sa"}
         fullWidth={true}
         label="Phone Number"
-        onChange={handlePhoneNumberChange}
+        onChange={(phoneNumber) => handleFormChange("phoneNumber", phoneNumber)}
       />
 
       <TextField
@@ -110,7 +93,7 @@ function TutorSignup({ createAccount }) {
         id="qualifications"
         fullWidth={true}
         required={true}
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <Button

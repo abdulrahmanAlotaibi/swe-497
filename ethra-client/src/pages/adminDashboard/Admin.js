@@ -62,9 +62,9 @@ export default class extends Component {
     //   students: students.data.data,
     //   courses: courses.data.data,
     //   tutors: tutors.data.data,
-    //   noStudents: students.data.data.length,
-    //   noCourses: courses.data.data.length,
-    //   noTutors: tutors.data.data.length,
+    //   numberOfStudents: students.data.data.length,
+    //   numberOfCourses: courses.data.data.length,
+    //   numberOfTutors: tutors.data.data.length,
     //   loading: false,
     // }));
     const { dashboardContentType } = this.state;
@@ -84,7 +84,13 @@ export default class extends Component {
   };
 
   render() {
-    const { noStudents, noCourses, noTutors, type, loading } = this.state;
+    const {
+      numberOfStudents,
+      numberOfCourses,
+      numberOfTutors,
+      type,
+      loading,
+    } = this.state;
 
     if (loading) {
       return <LoadingSpinner />;
@@ -130,7 +136,11 @@ export default class extends Component {
       <main className="admin-page">
         <div className="admin">
           <h2 className="admin__stats-primary-heading"> Dashboard Stats </h2>
-          <AdminStats noCourses noTutors noStudents />
+          <AdminStats
+            numberOfCourses={numberOfCourses}
+            numberOfTutors={numberOfTutors}
+            numberOfStudents={numberOfStudents}
+          />
           <h2 className="admin__primary-heading"> Admin Dashboard </h2>
           <AdminControllers />
           <ul className="admin__courses"> {dashboard} </ul>
