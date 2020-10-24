@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import "./Cart.scss";
+import "./index.scss";
 import { IoIosTrash } from "react-icons/io";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import LoadingSpinner from "components/loadingIcon/LoadingSpinner";
+import CartItem from "./cartItem/CartItem";
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -20,27 +21,26 @@ class Cart extends Component {
     this.getCart();
   }
 
-  handleToken = async (token, addresses) => {
-    const cachedToken = JSON.parse(window.localStorage.getItem("token"));
+  // handleToken = async (token, addresses) => {
+  //   const cachedToken = JSON.parse(window.localStorage.getItem("token"));
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/stripe/api/checkout-session",
-        { token, price: this.state.totalPrice, courses: this.state.courses },
-        {
-          headers: { authorization: `Bearer ${cachedToken}` },
-        }
-      );
-      this.props.history.push("/my-courses");
-    } catch (err) {
-      console.log(err.response.data.message);
-    }
-  };
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:8000/stripe/api/checkout-session",
+  //       { token, price: this.state.totalPrice, courses: this.state.courses },
+  //       {
+  //         headers: { authorization: `Bearer ${cachedToken}` },
+  //       }
+  //     );
+  //     this.props.history.push("/my-courses");
+  //   } catch (err) {
+  //     console.log(err.response.data.message);
+  //   }
+  // };
 
   async getCart() {
     try {
       const token = JSON.parse(window.localStorage.getItem("token"));
-      console.log("Cart.js token: ", token);
       const res = await axios.get("http://localhost:8000/course/cart", {
         headers: { authorization: `Bearer ${token}` },
       });
@@ -55,9 +55,10 @@ class Cart extends Component {
     }
   }
 
-  removeCourse = async (id) => {
+  handleRemoveCourse = async (id) => {
     try {
       const token = JSON.parse(window.localStorage.getItem("token"));
+      // TODO: Optimistic update
       await axios.delete(`http://localhost:8000/course/cart/${id}`, {
         headers: { authorization: `Bearer ${token}` },
       });
@@ -83,28 +84,23 @@ class Cart extends Component {
   };
 
   render() {
-    if (this.state.cartEmpty) {
-      return (
-        <h1 style={{ textAlign: "center", marginTop: "2rem" }}> Empty Cart </h1>
-      );
-    }
-    if (!this.state.courses || Object.keys(this.state.courses).length === 0) {
-      return <LoadingSpinner />;
-    }
+    // if (this.state.cartEmpty) {
+    //   return (
+    //     <h1 style={{ textAlign: "center", marginTop: "2rem" }}> Empty Cart </h1>
+    //   );
+    // }
+    // if (!this.state.courses || Object.keys(this.state.courses).length === 0) {
+    //   return <LoadingSpinner />;
+    // }
     const renderedCourses = this.state.courses.map((course) => {
+      const { _id, name, price } = course;
       return (
-        <li key={course._id} clssName="cart__item">
-          <div className="cart__info">
-            {/* <img className="cart__img" src="img/p1.jpg" /> */}
-            <span className="cart__name"> {course.name} </span>
-          </div>
-          <div className="cart__price-container">
-            <span className="cart__price"> {`${course.price} SR`} </span>
-            <span className="cart__remove">
-              <IoIosTrash onClick={this.removeCourse.bind(this, course._id)} />
-            </span>
-          </div>
-        </li>
+        <CartItem
+          key={_id}
+          name={course}
+          price={price}
+          removeCourse={this.handleRemoveCourse}
+        />
       );
     });
     return (
@@ -123,10 +119,6 @@ class Cart extends Component {
               billingAddress
               shippingAddress
             />
-            {/* <Link className="cart__checkout-btn" to="/stripe-cart">
-                              Checkout
-                            </Link> */}
-            {/* <button onClick={this.checkout}>Checkout</button> */}
           </div>
         </div>
       </section>
