@@ -1,8 +1,8 @@
 const express = require("express");
 const authController = require("../controllers/auth");
-const courseController = require("../controllers/course");
-const studentController = require("../controllers/student");
-const tutorController = require("../controllers/tutor");
+const courseController = require("../../../controllers/course");
+const studentController = require("../../../controllers/student");
+const tutorController = require("../../../controllers/tutor");
 const commentController = require("./commentController");
 
 const commentRouter = express.Router();
