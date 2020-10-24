@@ -57,6 +57,16 @@ export const signupReducer = (state, action) => {
   }
 };
 
+export const handleFormChange = (key, value) => {
+  dispatch({
+    type: UPDATE_INPUT,
+    payload: {
+      key,
+      value,
+    },
+  });
+};
+
 
 //  export const handleFormChange = (evt) => {
 //     dispatch({

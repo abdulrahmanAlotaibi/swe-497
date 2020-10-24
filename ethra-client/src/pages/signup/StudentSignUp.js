@@ -5,20 +5,11 @@ import {
   UPDATE_INPUT,
   studentSignupState,
   signupReducer,
+  handleFormChange,
 } from "pages/signup/util";
 
 function StudentSignup({ createAccount }) {
   const [state, dispatch] = useReducer(signupReducer, studentSignupState);
-
-  const handleFormChange = (evt) => {
-    dispatch({
-      type: UPDATE_INPUT,
-      payload: {
-        key: evt.target.name,
-        value: evt.target.value,
-      },
-    });
-  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -52,7 +43,7 @@ function StudentSignup({ createAccount }) {
         autoFocus={true}
         required={true}
         defaultValue={state.name}
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <TextField
@@ -65,7 +56,7 @@ function StudentSignup({ createAccount }) {
         required={true}
         helperText="We'll never share your email."
         defaultValue={state.email}
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <TextField
@@ -78,7 +69,7 @@ function StudentSignup({ createAccount }) {
         fullWidth={true}
         required={true}
         defaultValue={state.password}
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <TextField
@@ -91,7 +82,7 @@ function StudentSignup({ createAccount }) {
         fullWidth={true}
         required={true}
         defaultValue={state.confirmPassword}
-        onChange={handleFormChange}
+        onChange={(evt) => handleFormChange(evt.target.name, evt.target.value)}
       />
 
       <Button

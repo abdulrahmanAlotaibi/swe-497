@@ -4,7 +4,7 @@ import "./Signup.scss";
 import "components/form/Form.scss";
 import TutorSignup from "./TutorSignup";
 import { Redirect } from "react-router-dom";
-import SignupType from "./SignupType"; 
+import SignupType from "./SignupType";
 import {
   UPDATE_INPUT,
   UPDATE_IS_LOADING,
@@ -35,10 +35,6 @@ function Signup() {
 
     try {
       const res = await signup(state.type, account);
-      // todo: change try catch 
-      // if(res.errors){
-      //   dispatch
-      // }
       dispatch({
         type: SIGNUP_SUCCESS,
       });
@@ -46,7 +42,6 @@ function Signup() {
       let message = e.response.data.message;
     }
   };
-
 
   return (
     <section className="form-section">
