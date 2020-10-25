@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 // Define API rate limiting
-app.use(rateLimiter());
+app.use(rateLimiter);
 
 // Define Routes
 app.use("/api/v1/auth", require("./routes/auth-route"));
