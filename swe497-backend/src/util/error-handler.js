@@ -2,7 +2,7 @@ class BaseError extends Error {
   constructor(
     name,
     httpStatusCode = 500,
-    isOperational = true,
+    isOperational = false,
     description = "Internal Server Error"
   ) {
     super(description);
@@ -13,6 +13,7 @@ class BaseError extends Error {
     Error.captureStackTrace(this);
   }
 }
+
 
 class APIError extends BaseError {
   constructor(

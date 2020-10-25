@@ -12,7 +12,9 @@ exports.signIn = async (email, password) => {
 
   if (!isMatch) {
     throw new APIError.badRequest();
+ 
   }
+  
 
   const payload = {
     user: {
@@ -28,7 +30,7 @@ exports.signIn = async (email, password) => {
     },
     (err, token) => {
       if (err) {
-        throw new Error(err);
+        throw new APIError(err);
       }
     }
   );

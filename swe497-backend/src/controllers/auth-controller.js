@@ -1,6 +1,4 @@
 const { validationResult } = require("express-validator");
-const User = require("../models/User");
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
@@ -52,28 +50,7 @@ exports.signIn = async (req, res, next) => {
   }
 
   try {
-    // if the user exsist
-    const { email, password } = req.body;
-    // let user = await User.findOne({ email });
-
-
-    if (!user) {
-      return res.status(400).json({
-        status: "failed",
-        errors: [{ msg: "Invalid Credintials", param: "email" }],
-      });
-    }
-
-    return res.status(400).json({
-      status: "failed",
-      errors: [{ msg: "Invalid Credintials", param: "password" }],
-    });
-    
   } catch (err) {
     console.error(err);
-    res.status(500).json({
-      status: "failed",
-      message: "Internal Server Error",
-    });
   }
 };
