@@ -1,4 +1,5 @@
 {
   "databaseURI": "mongodb+srv://SWE497:r2EZjzEGpFjFOuRD@cluster0-fuyka.mongodb.net/SWE497?retryWrites=true&w=majority",
-  "databasePassword": "r2EZjzEGpFjFOuRD"
+  "databasePassword": "r2EZjzEGpFjFOuRD",
+  "jwtSecret": "mysecrettoken"
 }

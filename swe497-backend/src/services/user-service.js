@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const APIError = require("../util/errorHandler");
+ 
 exports.signIn = async (email, password) => {
   let user = await User.findOne({ email });
 
@@ -12,9 +13,7 @@ exports.signIn = async (email, password) => {
 
   if (!isMatch) {
     throw new APIError.badRequest();
- 
   }
-  
 
   const payload = {
     user: {
@@ -36,4 +35,17 @@ exports.signIn = async (email, password) => {
   );
 
   return token;
+};
+
+exports.signUp = async (name, email, password, confirmPassword) => {
+  let user = await User.findOne({ email });
+
+  if (user) {
+    // return res.status(400).json({
+    //   status: "failed",
+    //   errors: [{ msg: "User already exsist" }],
+    // });
+
+
+  }
 };
