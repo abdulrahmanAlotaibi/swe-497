@@ -6,6 +6,7 @@ const auth = require("../middlewares/auth");
 const { catchErrors } = require("../middlewares/error-handler");
 
 const router = express.Router();
+
 // @route   POST api/v1/auth
 // @desc    Get user by token
 // @access  Public

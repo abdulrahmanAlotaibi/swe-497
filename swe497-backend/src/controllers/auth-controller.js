@@ -1,11 +1,15 @@
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const config = require("config");
-
+const APIError = require("../middlewares/error-handler");
+const authService = require("../services/auth-service");
+const userService = require("../services/user-service");
 
 exports.authUser = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select("-password");
+    const userId = req.user.id;
+
+    const user = authService.getUser(userId);
 
     res.status(200).json({
       status: "success",
@@ -13,29 +17,6 @@ exports.authUser = async (req, res) => {
     });
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ errors: [{ msg: "Internal Server Error" }] });
+    throw new APIError();
   }
 };
-
-exports.signIn = async (req, res, next) => {
-  // Bring all the errors from the validation process
-  const errors = validationResult(req);
-
-  if (!errors.isEmpty()) {
-    return res.status(400).json({
-      status: "failed",
-      errors: errors.array(),
-    });
-  }
-
-  try {
-  } catch (err) {
-    console.error(err);
-  }
-};
-
-
-
-exports.signUp = async (req, res,next) =>{
-  
-}
