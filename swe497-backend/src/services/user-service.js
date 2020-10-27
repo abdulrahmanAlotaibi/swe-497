@@ -1,6 +1,8 @@
 const User = require("../models/User");
-const {APIError} = require("../middlewares/error-handler");
-
+const { APIError } = require("../middlewares/error-handler");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 exports.signIn = async (email, password) => {
   try {
     let user = await User.findOne({ email });
@@ -22,18 +24,9 @@ exports.signIn = async (email, password) => {
       },
     };
 
-    const token = jwt.sign(
-      payload,
-      config.get("jwtSecret"),
-      {
-        expiresIn: 360000,
-      },
-      (err, token) => {
-        if (err) {
-          throw new APIError(err);
-        }
-      }
-    );
+    const token = jwt.sign(payload, config.get("jwtSecret"), {
+      expiresIn: 360000,
+    });
 
     return token;
   } catch (err) {
@@ -41,7 +34,7 @@ exports.signIn = async (email, password) => {
   }
 };
 
-exports.signUp = async (name, email, password, confirmPassword) => {
+exports.signUp = async (name, email, password, confirmPassword, role) => {
   try {
     let user = await User.findOne({ email });
 
@@ -55,6 +48,7 @@ exports.signUp = async (name, email, password, confirmPassword) => {
       email,
       password,
       confirmPassword,
+      role,
     });
 
     // Salt algorithim to encrypt password
@@ -64,28 +58,22 @@ exports.signUp = async (name, email, password, confirmPassword) => {
 
     user.confirmPassword = user.password;
 
-    const newUser = await user.save();
+    await user.save();
 
     const payload = {
       user: {
         id: user.id,
       },
     };
-    // Send back the token
-    const token = jwt.sign(
-      payload,
-      config.get("jwtSecret"),
-      {
-        expiresIn: 360000,
-      },
-      (err, token) => {
-        if (err) throw err;
-        res.status(200).json({ token });
-      }
-    );
 
-    return { ...newUser, token };
+    // Send back the token
+    const token = jwt.sign(payload, config.get("jwtSecret"), {
+      expiresIn: 360000,
+    });
+
+    return token;
   } catch (err) {
+    console.log(err);
     throw new APIError();
   }
 };

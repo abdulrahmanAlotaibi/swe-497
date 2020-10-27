@@ -1,7 +1,4 @@
-const { validationResult } = require("express-validator");
-const jwt = require("jsonwebtoken");
-const config = require("config");
-const { APIError, handleErrors } = require("../middlewares/error-handler");
+const { APIError } = require("../middlewares/error-handler");
 const authService = require("../services/auth-service");
 const userService = require("../services/user-service");
 
@@ -27,6 +24,6 @@ exports.signIn = async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    token,
+    data: token,
   });
 };

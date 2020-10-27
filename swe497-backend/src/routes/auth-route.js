@@ -3,7 +3,7 @@ const authController = require("../controllers/auth-controller");
 const validator = require("../middlewares/validator");
 const auth = require("../middlewares/auth");
 const validationChecker = require("../middlewares/validationChecker");
-const { catchErrors, handleErrors } = require("../middlewares/error-handler");
+const { catchErrors } = require("../middlewares/error-handler");
 
 const router = express.Router();
 
