@@ -10,4 +10,10 @@ const router = express.Router();
 // @access   Public
 router.get("/", coursesController.getCourses);
 
+// @route    DELETE api/v1/courses
+// @desc     delete course
+// @access   Private
+router.get("/", coursesController.deleteCourse);
+
+
 module.exports = router;

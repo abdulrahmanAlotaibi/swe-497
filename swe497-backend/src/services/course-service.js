@@ -6,7 +6,6 @@ const { APIError } = require("../middlewares/error-handler");
  */
 exports.getCourses = async (skip, limit) => {
   try {
-  
     const courses = await Course.find({})
       .skip(skip)
       .limit(limit);
@@ -22,6 +21,8 @@ exports.createCourse = async () => {};
 
 exports.editCourse = async () => {};
 
-exports.deleteCourse = async () => {};
+exports.deleteCourse = async (courseId) => {
+  const deletedCourse = Course.deleteOne(courseId);
+};
 
 exports.getStudentCourses = async () => {};
