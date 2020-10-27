@@ -11,7 +11,7 @@ exports.signUp = [
   check("confirmPassword", "Passwords must be equal").custom(
     (value, { req }) => value === req.body.password
   ),
-  check("confirmPassword", "COnfirm Password is not valid")
+  check("confirmPassword", "Confirm Password is not valid")
     .trim()
     .isLength({ min: 7 }),
 ];

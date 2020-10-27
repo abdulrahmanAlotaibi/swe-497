@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("config");
+const { APIError } = require("../middlewares/error-handler");
 const databaseURI = config.get("databaseURI");
 
 const connectDB = async () => {
@@ -13,10 +14,7 @@ const connectDB = async () => {
     console.log("✅ database is connected");
   } catch (err) {
     console.log("🔴 Database failed to connect!");
-    console.error(err.message);
-
-    // Exit process with failure
-    process.exit(1);
+    throw APIError();
   }
 };
 

@@ -1,6 +1,12 @@
 const User = require("../models/User");
+const APIError = require("../middlewares/error-handler");
 
 exports.getUser = async (userId) => {
-  const user = await User.findById(userId).select("-password");
-  return user;
+  try {
+    const user = await User.findById(userId).select("-password");
+
+    return user;
+  } catch (err) {
+    throw APIError();
+  }
 };

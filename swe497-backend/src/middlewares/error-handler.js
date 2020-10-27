@@ -19,9 +19,11 @@ class APIError extends BaseError {
     name,
     isOperational = true,
     status = 500,
-    message = "Internal Server Error"
+    message = "Internal Server Error",
+    errors
   ) {
     super(name, isOperational, status, message);
+    this.errors = errors ? errors : [];
   }
 
   static badRequest(
@@ -33,13 +35,13 @@ class APIError extends BaseError {
     return new APIError(name, isOperational, status, message);
   }
 
-  static invalidInputs(
-    name = "API Error",
-    isOperational = true,
-    status = 422,
-    message = "Invalid inputs"
-  ) {
-    return new APIError(name, isOperational, status, message);
+  static invalidInputs(newErrors) {
+    const name = "API Error";
+    const isOperational = true;
+    const status = 422;
+    const message = "Invalid inputs";
+    const errors = newErrors;
+    return new APIError(name, isOperational, status, message, errors);
   }
 
   static alreadyExsist(
@@ -79,61 +81,25 @@ class APIError extends BaseError {
   }
 }
 
-/*
-  With async/await, you need some way to catch errors
-  Instead of using try{} catch(e) {} in each controller, we wrap the function in
-  catchErrors(), catch and errors they throw, and pass it along to our express middleware with next()
-*/
-
-const catchErrors = (fn) => {
+const catchErrors = (cb) => {
   return function(req, res, next) {
-    return fn(req, res, next).catch(next);
+    return cb(req, res, next).catch(next);
   };
 };
 
-/*
-  Not Found Error Handler
-  If we hit a route that is not found, we mark it as 404 and pass it along to the next error handler to display
-*/
-exports.notFound = (req, res, next) => {
-  const err = new Error("Not Found");
-  err.status = 404;
-  next(err);
-};
+const handleErrors = (err, req, res, next) => {
+  const { name, status, message, isOperational, errors } = err;
 
-/*
-  Development Error Hanlder
-  In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
-*/
-exports.developmentErrors = (err, req, res, next) => {
-  err.stack = err.stack || "";
-  const errorDetails = {
-    message: err.message,
-    status: err.status,
-    stackHighlighted: err.stack.replace(
-      /[a-z_-\d]+.js:\d+:\d+/gi,
-      "<mark>$&</mark>"
-    ),
-  };
-  res.status(err.status || 500);
-  res.format({
-    // Based on the `Accept` http header
-    "text/html": () => {
-      res.render("error", errorDetails);
-    }, // Form Submit, Reload the page
-    "application/json": () => res.json(errorDetails), // Ajax call, send JSON back
-  });
-};
+  if (!isOperational) {
+    system.exit(1);
+  }
 
-/*
-  Production Error Hanlder
-  No stacktraces are leaked to user
-*/
-exports.productionErrors = (err, req, res, next) => {
-  res.status(err.status || 500);
-  
-  res.render("error", {
-    message: err.message,
+  console.error(errors);
+
+  res.status(status).json({
+    status: "failed",
+    message,
+    errors: errors.errors,
   });
 };
 
@@ -142,4 +108,5 @@ module.exports = {
   BaseError,
   APIError,
   catchErrors,
+  handleErrors,
 };
