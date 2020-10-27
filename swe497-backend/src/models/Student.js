@@ -4,12 +4,12 @@ const User = require("./User");
 const StudentSchema = new mongoose.Schema({
   courses: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Course",
     },
   ],
   cart: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Cart",
   },
   currentEducationLevel: {

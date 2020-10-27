@@ -12,7 +12,7 @@ const ChapterSchema = new mongoose.Schema({
   },
   content: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       refPath: "contentType",
     },
   ],

@@ -8,6 +8,6 @@ const router = express.Router();
 // @route    GET api/v1/courses
 // @desc     Get all courses
 // @access   Public
-router.get("/courses", auth);
+router.get("/", coursesController.getCourses);
 
 module.exports = router;

@@ -5,12 +5,12 @@ const reviewSchema = new mongoose.Schema({
     type: String,
   },
   course: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Course",
     required: [true, "Review must belong to a course"],
   },
   author: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Student",
     required: [true, "The review must be written by a student"],
   },

@@ -15,12 +15,12 @@ const commentSchema = new mongoose.Schema({
     required: [true, "Comment must have a text"],
   },
   course: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     path: "Course",
     required: [true, "Comment must have a course reference"],
   },
   video: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     path: "Video",
     required: [true, "Comment must have a video reference"],
   },
@@ -31,7 +31,7 @@ const commentSchema = new mongoose.Schema({
   },
   replies: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       path: "Comment",
     },
   ],

@@ -6,7 +6,7 @@ const videoSchema = new mongoose.Schema({
     required: true,
   },
   course: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Course",
   },
   content: {

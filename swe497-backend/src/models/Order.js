@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const OrderSchema = mongoose.Schema({
   owner: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
   itemType: {
@@ -12,7 +12,7 @@ const OrderSchema = mongoose.Schema({
   },
   items: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       refPath: "contentType",
     },
   ],

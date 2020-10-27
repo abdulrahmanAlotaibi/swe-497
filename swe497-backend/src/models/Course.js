@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const CourseSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -10,7 +11,7 @@ const CourseSchema = new mongoose.Schema({
     required: [true, "Course must have a description"],
   },
   tutor: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Tutor",
   },
   img: {
@@ -18,7 +19,7 @@ const CourseSchema = new mongoose.Schema({
   },
   students: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Student",
     },
   ],
@@ -42,7 +43,7 @@ const CourseSchema = new mongoose.Schema({
   },
   chapters: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Chapter",
     },
   ],
@@ -55,12 +56,12 @@ const CourseSchema = new mongoose.Schema({
     min: 0,
   },
   institution: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Institution",
     required: [true, "Course must have an institution"],
   },
   category: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
     required: [true, "Course must have a category"],
   },
