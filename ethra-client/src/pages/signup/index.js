@@ -30,7 +30,7 @@ function Signup() {
 
   const createAccount = async (account) => {
     dispatch({
-      type: UPDATE_IS_LOADING,
+      type: SIGNUP_IN_PROGRESS,
     });
 
     try {
@@ -39,7 +39,7 @@ function Signup() {
         type: SIGNUP_SUCCESS,
       });
     } catch (e) {
-      let message = e.response.data.message;
+      // let message = e.response.data.message;
     }
   };
 

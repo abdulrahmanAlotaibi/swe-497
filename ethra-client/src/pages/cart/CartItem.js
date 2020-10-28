@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.scss";
+import { IoIosTrash } from "react-icons/io";
 
 export default function CartItem(props) {
   const { _id, name, price, removeCourse } = props;
