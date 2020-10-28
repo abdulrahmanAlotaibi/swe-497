@@ -1,9 +1,14 @@
+const USER = {
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
 export const UPDATE_INPUT = "UPDATE_INPUT";
-export const UPDATE_IS_LOADING = "UPDATE_IS_LOADING";
-export const UPDATE_ERRORS = "UPDATE_ERRORS";
+export const SIGNUP_IN_PROGRESS = "SIGNUP_IN_PROGRESS";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";
-// todo: handle validation error messages
 
 //  General State: Signup.js component
 export const signupState = {
@@ -12,18 +17,10 @@ export const signupState = {
   errors: [],
 };
 
-export const studentSignupState = {
-  name: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
-};
+export const studentSignupState = { ...USER };
 
 export const tutorSignupState = {
-  name: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
+  ...USER,
   phoneNumber: "",
   qualifications: "",
   country: "",
@@ -34,12 +31,9 @@ export const signupReducer = (state, action) => {
   switch (action.type) {
     case UPDATE_INPUT:
       return { ...state, [action.payload.key]: action.payload.value };
-    case UPDATE_IS_LOADING:
-      return { ...state, isLoading: !state.isLoading };
-    case UPDATE_ERRORS:
-      return { ...state, errors: action.payload.errors };
+    case SIGNUP_IN_PROGRESS:
+      return { ...state, isLoading: true };
     case SIGNUP_SUCCESS: {
-      // todo: update token
       return { ...state, isLoading: false };
     }
     case SIGNUP_FAIL: {
