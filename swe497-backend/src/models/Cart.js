@@ -20,4 +20,8 @@ const CartSchema = new mongoose.Schema({
     type: Number,
   },
 });
+
+
+// CartSchema.virtual("")
+
 module.exports = Cart = mongoose.model("Cart", CartSchema);

@@ -17,12 +17,29 @@ exports.getCourses = async (skip, limit) => {
   }
 };
 
-exports.createCourse = async () => {};
+exports.createCourse = async (newCourse) => {};
 
-exports.editCourse = async () => {};
+exports.updateCourse = async (courseId, properties) => {
+  try {
+    return await Course.updateOne({ _id: courseId }, { $set: properties })
+      .lean()
+      .exec();
+  } catch (err) {
+    console.error(err);
+    throw new APIError();
+  }
+};
 
 exports.deleteCourse = async (courseId) => {
-  const deletedCourse = Course.deleteOne(courseId);
+  console.log(courseId);
+  try {
+    const deletedCourse = await Course.findOneAndDelete(courseId);
+    // TODO: Add validation for non-exsistent docs
+    return deletedCourse;
+  } catch (err) {
+    console.error(err);
+    throw new APIError();
+  }
 };
 
 exports.getStudentCourses = async () => {};

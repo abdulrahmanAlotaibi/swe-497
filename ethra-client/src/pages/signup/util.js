@@ -66,14 +66,3 @@ export const handleFormChange = (key, value) => {
     },
   });
 };
-
-
-//  export const handleFormChange = (evt) => {
-//     dispatch({
-//       type: UPDATE_INPUT,
-//       payload: {
-//         key: evt.target.name,
-//         value: evt.target.value,
-//       },
-//     });
-//   };
