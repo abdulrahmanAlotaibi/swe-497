@@ -5,7 +5,6 @@ const USER = {
   confirmPassword: "",
 };
 
-export const UPDATE_INPUT = "UPDATE_INPUT";
 export const SIGNUP_IN_PROGRESS = "SIGNUP_IN_PROGRESS";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";
@@ -49,14 +48,4 @@ export const signupReducer = (state, action) => {
     default:
       return state;
   }
-};
-
-export const handleFormChange = (key, value) => {
-  dispatch({
-    type: UPDATE_INPUT,
-    payload: {
-      key,
-      value,
-    },
-  });
 };

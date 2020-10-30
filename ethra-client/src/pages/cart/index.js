@@ -1,29 +1,27 @@
-import React from "react";
+import React, { useState, useReducer } from "react";
 import "./index.scss";
 import CartItem from "./cartItem/CartItem";
 import CartCheckout from "./CartCheckout";
-import withFetch from "../../shared/hoc/withFetch";
-
-// function Cart(props) {
-//   const { handlers, data } = props;
-//   const { items, totalPrice } = data;
-//   const { handleRemoveItem } = handlers;
-//   return (
-//     <section className="cart-section">
-//       <div className="cart">
-//         <ul className="cart__list">
-//           renderedItems(CartItem, items, {handleRemoveItem})
-//           {/* {renderedItems(items, { handleRemoveItem })} */}
-//         </ul>
-//       </div>
-//       <CartCheckout totalPrice={totalPrice} />
-//     </section>
-//   );
-// }
-
-// export default withFetch(Cart, "/courses/cart", headers);
+import getCart from "courseAPI";
+import { renderedItems } from "../../shared/common";
+import { cartReducer, cartState, REMOVE_ITEM } from "./util";
 
 export default function Cart(props) {
-  const data = useFetch();
-  const []
+  const [state, dispatch] = useReducer(cartReducer, cartState);
+  function handleRemoveItem() {
+    dispatch({
+      type: REMOVE_ITEM,
+      payload: {},
+    });
+  }
+  return (
+    <section className="cart-section">
+      <div className="cart">
+        <ul className="cart__list">
+          renderedItems(CartItem, items, {handleRemoveItem})
+        </ul>
+      </div>
+      <CartCheckout totalPrice={totalPrice} />
+    </section>
+  );
 }

@@ -1,19 +1,13 @@
-// export function renderItems(items, { handleRemoveItem }) {
-//   return items.map((item) => {
-//     const { _id, name, price } = item;
-//     return (
-//       <CartItem
-//         key={_id}
-//         name={name}
-//         price={price}
-//         removeItem={handleRemoveItem}
-//       />
-//     );
-//   });
-// }
+export const REMOVE_ITEM = "REMOVE_ITEM";
 
-export default function renderItems(Component, items, handlers) {
-  return items.map((item) => {
-    return <Component {...item} {...handlers} />;
-  });
+export const cartState = {
+  items: [],
+  totalPrice: 0,
+};
+
+export function cartReducer(state, action) {
+  switch (action.type) {
+    case REMOVE_ITEM:
+      return { ...state };
+  }
 }
