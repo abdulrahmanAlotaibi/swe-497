@@ -7,7 +7,7 @@ const { APIError } = require("../middlewares/error-handler");
  * TODO: Add filters
  * TODO: Add pagination
  */
-exports.getCourses = async (skip, limit) => {
+exports.getCourses = async (skip = 5, limit = 15) => {
   try {
     const courses = await Course.find({})
       .skip(skip)
