@@ -1,8 +1,11 @@
 const Course = require("../models/Course");
+const Category = require("../models/Category");
+const Institution = require("../models/Institution");
+
 const { APIError } = require("../middlewares/error-handler");
 /**
- * todo: Add filters
- * todo: Add pagination
+ * TODO: Add filters
+ * TODO: Add pagination
  */
 exports.getCourses = async (skip, limit) => {
   try {
@@ -16,6 +19,18 @@ exports.getCourses = async (skip, limit) => {
     console.error(err);
     throw new APIError();
   }
+};
+
+exports.getCourse = async (courseId) => {
+  const course = await Course.findById(courseId)
+    .lean()
+    .exec();
+
+  if (!course) {
+    throw APIError.invalidInputs();
+  }
+
+  return course;
 };
 
 exports.createCourse = async (course) => {
@@ -40,7 +55,7 @@ exports.updateCourse = async (courseId, properties) => {
 
 exports.deleteCourse = async (courseId) => {
   try {
-    return await Course.deleteOne(courseId)
+    return await Course.deleteOne({ _id: courseId })
       .lean()
       .exec();
   } catch (err) {

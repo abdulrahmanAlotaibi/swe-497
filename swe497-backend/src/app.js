@@ -1,13 +1,18 @@
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
-const { APIError,handleErrors } = require("./middlewares/error-handler");
+const { APIError, handleErrors } = require("./middlewares/error-handler");
 const rateLimiter = require("./middlewares/rate-limiter");
+const cors = require("cors");
 
 const app = express();
+//TODO: Add course policy
 
 // Logging in dev mode
 app.use(morgan("dev"));
+
+// Access-Control-Allow-Origin *
+app.use(cors());
 
 // To parse incoming requests as json
 app.use(express.json());

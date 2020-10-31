@@ -55,12 +55,12 @@ const CourseSchema = new mongoose.Schema({
     min: 0,
   },
   institution: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "Institution",
     required: [true, "Course must have an institution"],
   },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "Category",
     required: [true, "Course must have a category"],
   },
