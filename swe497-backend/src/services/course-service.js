@@ -12,6 +12,7 @@ exports.getCourses = async (skip, limit) => {
     const courses = await Course.find({})
       .skip(skip)
       .limit(limit)
+      .lean()
       .exec();
 
     return courses;
