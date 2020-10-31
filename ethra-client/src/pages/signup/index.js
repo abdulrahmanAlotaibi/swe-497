@@ -4,12 +4,12 @@ import "./Signup.scss";
 import TutorSignup from "./TutorSignup";
 import SignupType from "./SignupType";
 import {
-  UPDATE_INPUT,
   UPDATE_IS_LOADING,
   signupState,
   signupReducer,
   SIGNUP_SUCCESS,
 } from "pages/signup/util";
+import { UPDATE_INPUT } from "../../shared/common";
 import { signup } from "util/api/UserAPI";
 
 function Signup() {
@@ -27,7 +27,7 @@ function Signup() {
 
   const createAccount = async (account) => {
     dispatch({
-      type: UPDATE_IS_LOADING,
+      type: SIGNUP_IN_PROGRESS,
     });
 
     try {
@@ -36,7 +36,7 @@ function Signup() {
         type: SIGNUP_SUCCESS,
       });
     } catch (e) {
-      let message = e.response.data.message;
+      // let message = e.response.data.message;
     }
   };
 

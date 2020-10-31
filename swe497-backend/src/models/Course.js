@@ -70,19 +70,19 @@ const CourseSchema = new mongoose.Schema({
   },
 });
 
-CourseSchema.pre("deleteOne", function(next) {
-  const courseId = this.getQuery()["_id"];
-  mongoose
-    .model("Cart")
-    .deleteMany({ courses: courseId }, function(err, result) {
-      if (err) {
-        console.log(`[error] ${err}`);
-        next(err);
-      } else {
-        console.log("success");
-        next();
-      }
-    });
-});
+// CourseSchema.pre("deleteOne", function(next) {
+//   const courseId = this.getQuery()["_id"];
+//   mongoose
+//     .model("Cart")
+//     .deleteMany({ courses: courseId }, function(err, result) {
+//       if (err) {
+//         console.log(`[error] ${err}`);
+//         next(err);
+//       } else {
+//         console.log("success");
+//         next();
+//       }
+//     });
+// });
 
 module.exports = mongoose.model("Course", CourseSchema);

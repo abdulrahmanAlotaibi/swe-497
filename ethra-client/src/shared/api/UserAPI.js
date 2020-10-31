@@ -13,14 +13,12 @@ export const signin = async (user) => {
 };
 
 export const signup = async (accountType, accountData) => {
-  return axios.post(`${accountType}/signup/`, accountData);
   try {
-
+    return axios.post(`${accountType}/signup/`, accountData);
   }catch(err){
-
+    return Error();
   }
 };
-
 
 // todo: update user
 

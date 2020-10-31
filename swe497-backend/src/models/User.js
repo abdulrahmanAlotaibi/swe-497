@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const options = {
   discriminatorKey: "kind",
   collection: "users",
+  timestamps: true
 };
 
 const UserSchema = new mongoose.Schema(

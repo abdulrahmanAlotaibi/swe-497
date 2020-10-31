@@ -47,7 +47,7 @@ exports.updateCourse = async (req, res, next) => {
 };
 
 exports.deleteCourse = async (req, res, next) => {
-  courseId = parseInt(req.params.id);
+  const courseId = req.params.id;
 
   const deletedCourse = await courseService.deleteCourse(courseId);
 
