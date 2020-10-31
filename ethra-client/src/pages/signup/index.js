@@ -1,14 +1,11 @@
 import React, { useReducer } from "react";
 import StudentSignup from "./StudentSignUp";
 import "./Signup.scss";
-import "components/form/Form.scss";
 import TutorSignup from "./TutorSignup";
-import { Redirect } from "react-router-dom";
 import SignupType from "./SignupType";
 import {
   UPDATE_INPUT,
   UPDATE_IS_LOADING,
-  UPDATE_ERRORS,
   signupState,
   signupReducer,
   SIGNUP_SUCCESS,
