@@ -5,8 +5,8 @@ const userService = require("../services/user-service");
 exports.authUser = async (req, res) => {
   try {
     const userId = req.user.id;
-
-    const user = await authService.getUser(userId);
+    const role = req.user.role;
+    const user = await authService.getUser(userId, role);
 
     res.status(200).json({
       status: "success",
@@ -18,9 +18,9 @@ exports.authUser = async (req, res) => {
 };
 
 exports.signIn = async (req, res, next) => {
-  const { email, password } = req.body;
-  console.log(email, password);
-  const token = await userService.signIn(email, password);
+  const { email, password, role } = req.body;
+  console.log(email, password, role);
+  const token = await userService.signIn(email, password, role);
 
   res.status(200).json({
     status: "success",

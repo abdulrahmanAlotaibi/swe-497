@@ -1,7 +1,7 @@
 const Course = require("../models/Course");
 const Category = require("../models/Category");
 const Institution = require("../models/Institution");
-
+const Tutor = require("../models/Tutor");
 const { APIError } = require("../middlewares/error-handler");
 /**
  * TODO: Add filters
@@ -65,4 +65,6 @@ exports.deleteCourse = async (courseId) => {
   }
 };
 
-exports.getStudentCourses = async () => {};
+
+
+// TODO: Add more CRUD

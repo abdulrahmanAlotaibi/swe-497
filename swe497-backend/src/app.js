@@ -27,6 +27,7 @@ app.use(rateLimiter);
 app.use("/api/v1/auth", require("./routes/auth-route"));
 app.use("/api/v1/users", require("./routes/user-route"));
 app.use("/api/v1/courses", require("./routes/course-route"));
+app.use("/api/v1/tutors", require("./routes/tutor-route"));
 
 // app.use("/api/v1/")
 app.use("/", (req, res) => {

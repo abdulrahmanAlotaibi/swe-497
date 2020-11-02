@@ -1,11 +1,19 @@
 const User = require("../models/User");
+const Tutor = require("../models/Tutor");
+const Student = require("../models/Student");
 const { APIError } = require("../middlewares/error-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
-exports.signIn = async (email, password) => {
+
+exports.signIn = async (email, password, role) => {
   try {
-    let user = await User.findOne({ email });
+    let user;
+    if (role === "student") {
+      user = await Student.findOne({ email });
+    } else if (role === "tutor") {
+      user = await Tutor.findOne({ email });
+    }
 
     if (!user) {
       throw APIError.badRequest();
@@ -21,6 +29,7 @@ exports.signIn = async (email, password) => {
     const payload = {
       user: {
         id: user.id,
+        role: user.role,
       },
     };
 
@@ -34,35 +43,38 @@ exports.signIn = async (email, password) => {
   }
 };
 
-exports.signUp = async (name, email, password, confirmPassword, role) => {
+exports.signUp = async (newAccount) => {
   try {
-    let user = await User.findOne({ email });
+    let user;
+
+    if (newAccount.role === "student") {
+      user = await Student.findOne({ email: newAccount.email }).exec();
+    } else if (newAccount.role === "tutor") {
+      user = await Tutor.findOne({ email: newAccount.email }).exec();
+    }
 
     // Check if the user exsist
     if (user) {
       throw APIError.alreadyExsist();
     }
 
-    user = new User({
-      name,
-      email,
-      password,
-      confirmPassword,
-      role,
-    });
-
     // Salt algorithim to encrypt password
     const salt = await bcrypt.genSalt(10);
 
-    user.password = await bcrypt.hash(password, salt);
+    newAccount.password = await bcrypt.hash(newAccount.password, salt);
 
-    user.confirmPassword = user.password;
+    let newUser;
 
-    await user.save();
+    if (newAccount.role === "student") {
+      newUser = await Student.create(newAccount);
+    } else if (newAccount.role === "tutor") {
+      newUser = await Tutor.create(newAccount);
+    }
 
     const payload = {
       user: {
-        id: user.id,
+        id: newUser.id,
+        role: newUser.role,
       },
     };
 

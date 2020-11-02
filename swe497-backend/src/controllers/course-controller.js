@@ -1,9 +1,9 @@
 const courseService = require("../services/course-service");
 
 exports.getAllCourses = async (req, res, next) => {
-  const skip = parseInt(req.query.skip);
+  const skip = parseInt(req.params.skip);
 
-  const limit = parseInt(req.query.limit);
+  const limit = parseInt(req.params.limit);
 
   const courses = await courseService.getCourses(skip, limit); // TODO: Add filters arg
 
@@ -25,31 +25,20 @@ exports.getCourse = async (req, res, next) => {
 };
 
 exports.createCourse = async (req, res, next) => {
-  const {
+  const courseData = ({
     title,
     price,
     description,
     startDate,
-    category,
+    mainCategory,
+    subCategory,
     institution,
     img,
     imgPath,
     chapters,
     tags,
-  } = req.body;
+  } = req.body);
 
-  const courseData = {
-    title,
-    price,
-    description,
-    startDate,
-    category,
-    institution,
-    img,
-    imgPath,
-    chapters,
-    tags,
-  };
 
   const course = await courseService.createCourse(courseData);
 
@@ -80,3 +69,4 @@ exports.deleteCourse = async (req, res, next) => {
 
   res.status(200).json({ status: "success", data: deletedCourse });
 };
+

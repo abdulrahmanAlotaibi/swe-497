@@ -1,7 +1,29 @@
 const mongoose = require("mongoose");
-const User = require("./User");
 
 const StudentSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "User must have a name"],
+  },
+  email: {
+    type: String,
+    required: [true, "User must have an email"],
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: [true, "User must have a password"],
+    minlength: 6,
+  },
+  isBaned: {
+    type: Boolean,
+    default: false,
+  },
+  role: {
+    type: String,
+    required: [true, "User must have a role"],
+    default: "student",
+  },
   courses: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -12,7 +34,7 @@ const StudentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Cart",
   },
-  currentEducationLevel: {
+  educationLevel: {
     type: String,
   },
   studyAt: {
@@ -20,4 +42,4 @@ const StudentSchema = new mongoose.Schema({
   },
 });
 
-module.exports = Student = User.discriminator("Student", StudentSchema);
+module.exports = Student = mongoose.model("Student", StudentSchema);

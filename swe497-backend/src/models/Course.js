@@ -59,10 +59,13 @@ const CourseSchema = new mongoose.Schema({
     ref: "Institution",
     required: [true, "Course must have an institution"],
   },
-  category: {
+  mainCategory: {
     type: String,
-    ref: "Category",
-    required: [true, "Course must have a category"],
+    required: [true, "Course must have a main category"],
+  },
+  subCategory: {
+    type: String,
+    required: [true, "Course must have a sub category"],
   },
   tags: {
     type: String,
