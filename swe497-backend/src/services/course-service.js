@@ -3,10 +3,12 @@ const Category = require("../models/Category");
 const Institution = require("../models/Institution");
 const Tutor = require("../models/Tutor");
 const { APIError } = require("../middlewares/error-handler");
+
 /**
  * TODO: Add filters
  * TODO: Add pagination
  */
+
 exports.getCourses = async (skip = 5, limit = 15) => {
   try {
     const courses = await Course.find({})
@@ -64,7 +66,5 @@ exports.deleteCourse = async (courseId) => {
     throw new APIError();
   }
 };
-
-
 
 // TODO: Add more CRUD

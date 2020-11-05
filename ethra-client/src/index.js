@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
-import ScrollToTop from "./util/ScrollTop";
+// import ScrollToTop from "./util/ScrollTop";
 
 ReactDOM.render(
   <BrowserRouter>
-    <ScrollToTop />
+    {/* <ScrollToTop /> */}
     <App />
   </BrowserRouter>,
   document.getElementById("root")

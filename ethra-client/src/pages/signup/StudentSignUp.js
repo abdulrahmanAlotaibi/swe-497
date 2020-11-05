@@ -5,11 +5,20 @@ import {
   UPDATE_INPUT,
   studentSignupState,
   signupReducer,
-  handleFormChange,
 } from "pages/signup/util";
-
+import "components/form/Form.scss"
 function StudentSignup({ createAccount }) {
   const [state, dispatch] = useReducer(signupReducer, studentSignupState);
+
+  const handleFormChange = (key, value) => {
+    dispatch({
+      type: UPDATE_INPUT,
+      payload: {
+        key,
+        value,
+      },
+    });
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

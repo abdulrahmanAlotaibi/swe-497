@@ -1,109 +1,133 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./MobileNav.scss";
-export default class MobileNav extends Component {
-  render() {
-    const token = JSON.parse(window.localStorage.getItem("token"));
-    const role = JSON.parse(window.localStorage.getItem("role"));
+import clsx from "clsx";
+import { makeStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
+import MenuIcon from "@material-ui/icons/Menu";
+import PlayCircleOutline from "@material-ui/icons/PlayCircleOutline";
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import ColorLens from "@material-ui/icons/ColorLens";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
-    return (
-      <article class="nav-mobile">
-        <Link to="/" className="nav-mobile__logo">
-          Ethra
-        </Link>
-        <input type="checkbox" class="nav-mobile__checkbox" id="nav-toggle" />
-        <label for="nav-toggle" class="nav-mobile__btn">
-          <span class="nav-mobile__icon">&nbsp;</span>
-        </label>
- 
-        <nav class="nav-mobile__nav">
-          <ul class="nav-mobile__list">
-            <li className="nav-mobile__item">
-              <Link class="nav-mobile__link" to="/search">
-                Courses
-              </Link>
-            </li>
-            <li className="nav-mobile__item">
-              <Link class="nav-mobile__link" to="/topics">
-                Topics
-              </Link>
-            </li>
-            <li className="nav-mobile__item">
-              <Link class="nav-mobile__link" to="/contact-us">
-                Contact Us
-              </Link>
-            </li>
-            {token ? (
-              <>
-                {role === "student" ? (
-                  <div>
-                    <li
-                      className="nav-mobile__item"
-                      style={{ display: "inline-block" }}
-                    >
-                      <Link class="nav-mobile__link" to="/my-courses">
-                        My Courses
-                      </Link>
-                    </li>
-                    <li className="nav-mobile__item">
-                      <Link class="nav-mobile__link" to="/my-topics">
-                        My Topics
-                      </Link>
-                    </li>
-                    <li
-                      className="nav-mobile__item"
-                      style={{ display: "inline-block" }}
-                    >
-                      <Link class="nav-mobile__link" to="/cart">
-                        Cart
-                      </Link>
-                    </li>
-                  </div>
-                ) : role === "admin" ? (
-                  <li className="nav-mobile__item">
-                    <Link class="nav-mobile__link" to="/admin">
-                      Dahsboard
-                    </Link>
-                  </li>
-                ) : (
-                  <li className="nav-mobile__item">
-                    <Link class="nav-mobile__link" to="/dashboard-tutor">
-                      Dahsboard
-                    </Link>
-                  </li>
-                )}
-                <li className="nav-mobile__item">
-                  <Link class="nav-mobile__link" to="/edit-profile">
-                    Profile
-                  </Link>
-                </li>
-                <li className="nav-mobile__item">
-                  <Link
-                    class="nav-mobile__link"
-                    to="/signin"
-                    onClick={() => this.props.context.resetAccount()}
-                  >
-                    Sign Out
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="nav-mobile__item">
-                  <Link className="signin-link" to="/signin">
-                    Sign In
-                  </Link>
-                </li>
-                <li className="nav-mobile__item nav-mobile__item--signout">
-                  <Link className="signup-link" to="/signup">
-                    Register
-                  </Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </nav>
-      </article>
-    );
-  }
+const useStyles = makeStyles({
+  list: {
+    width: 250,
+  },
+  fullList: {
+    width: "auto",
+  },
+});
+
+
+function MobileNav() {
+  const classes = useStyles();
+
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setIsOpen(open);
+  };
+  const list = (anchor) => (
+    <div
+      className={clsx(classes.list, {
+        [classes.fullList]: anchor === "top" || anchor === "bottom",
+      })}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        <ListItem button key={"s"}>
+          <ListItemIcon>
+            <PlayCircleOutline />
+          </ListItemIcon>
+          <ListItemText primary={"Courses"} />
+        </ListItem>
+
+        <ListItem button>
+          <ListItemIcon>
+            <ColorLens />
+          </ListItemIcon>
+          <ListItemText primary={"Dashboard"} />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <ShoppingCart />
+          </ListItemIcon>
+          <ListItemText primary={"Cart"} />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem button>
+          <ListItemIcon>
+            <MailIcon />
+          </ListItemIcon>
+          <ListItemText primary={"Contact Us"} />
+        </ListItem>
+      </List>
+    </div>
+  );
+  return (
+    <article class="nav-mobile">
+      <nav>
+        <MenuIcon
+          onClick={toggleDrawer(true)}
+          fontSize="large"
+          style={{ color: "#fff", cursor: "pointer", fontSize: "4rem" }}
+        />
+
+        <Drawer anchor="left" open={isOpen} onClose={() => setIsOpen(false)}>
+          {list("left")}
+        </Drawer>
+
+        <div>
+          <AccountCircle
+            onClick={handleClick}
+            style={{ color: "#fff", cursor: "pointer", fontSize: "4rem" }}
+          />
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Menu>
+        </div>
+        <Menu />
+      </nav>
+    </article>
+  );
 }
+
+export default MobileNav;

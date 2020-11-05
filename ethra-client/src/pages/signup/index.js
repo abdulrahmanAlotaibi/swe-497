@@ -1,16 +1,17 @@
 import React, { useReducer } from "react";
 import StudentSignup from "./StudentSignUp";
-import "./Signup.scss";
+import "./index.scss";
 import TutorSignup from "./TutorSignup";
 import SignupType from "./SignupType";
 import {
   UPDATE_IS_LOADING,
   signupState,
   signupReducer,
+  SIGNUP_IN_PROGRESS,
   SIGNUP_SUCCESS,
+  UPDATE_INPUT,
 } from "pages/signup/util";
-import { UPDATE_INPUT } from "../../shared/common";
-import { signup } from "util/api/UserAPI";
+// import { signup } from "util/api/UserAPI";
 
 function Signup() {
   const [state, dispatch] = useReducer(signupReducer, signupState);
@@ -20,7 +21,7 @@ function Signup() {
       type: UPDATE_INPUT,
       payload: {
         key: "type",
-        value: type,
+        value: state.type,
       },
     });
   };
@@ -31,7 +32,7 @@ function Signup() {
     });
 
     try {
-      const res = await signup(state.type, account);
+      // const res = await signup(state.type, account);
       dispatch({
         type: SIGNUP_SUCCESS,
       });
@@ -45,7 +46,7 @@ function Signup() {
       <h1 className="form-section__heading">Sign Up</h1>
       <SignupType handleTypeChange={handleTypeChange} type={state.type} />
       <div className="form-container">
-        {state.type === "student" ? (
+        {state.type === "tutor" ? (
           <StudentSignup createAccount={createAccount} errors={state.errors} />
         ) : (
           <TutorSignup createAccount={createAccount} errors={state.errors} />

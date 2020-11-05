@@ -1,10 +1,4 @@
-const USER = {
-  name: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
-};
-
+export const UPDATE_INPUT = "UPDATE_INPUT";
 export const SIGNUP_IN_PROGRESS = "SIGNUP_IN_PROGRESS";
 export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const SIGNUP_FAIL = "SIGNUP_FAIL";
@@ -16,10 +10,22 @@ export const signupState = {
   errors: [],
 };
 
-export const studentSignupState = { ...USER };
+export const studentSignupState = {
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  phoneNumber: "",
+  qualifications: "",
+  country: "",
+  city: "",
+};
 
 export const tutorSignupState = {
-  ...USER,
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
   phoneNumber: "",
   qualifications: "",
   country: "",

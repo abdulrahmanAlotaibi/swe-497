@@ -6,11 +6,20 @@ import {
   UPDATE_INPUT,
   tutorSignupState,
   signupReducer,
-  handleFormChange,
 } from "pages/signup/util";
 
 function TutorSignup({ createAccount }) {
   const [state, dispatch] = useReducer(signupReducer, tutorSignupState);
+
+  const handleFormChange = (key, value) => {
+    dispatch({
+      type: UPDATE_INPUT,
+      payload: {
+        key,
+        value,
+      },
+    });
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
