@@ -106,6 +106,7 @@ function MobileNav() {
         <Drawer anchor="left" open={isOpen} onClose={() => setIsOpen(false)}>
           {list("left")}
         </Drawer>
+          <h3  style={{ color: "#fff", cursor: "pointer", fontSize: "3rem" }}>Ethra</h3>
 
         <div>
           <AccountCircle

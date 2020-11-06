@@ -7,9 +7,9 @@
 nav {
   display:flex;
   justify-content:space-between;
-    display: none;
+  display: none;
 
-  @include respond(tablet-l) {
+  @include respond(laptop) {
     display: flex;
     align-items: center;
   }

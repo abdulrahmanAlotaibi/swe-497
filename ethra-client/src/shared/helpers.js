@@ -21,7 +21,7 @@ export function getRatingJSX(rating) {
   }
 
   const rendredStars = countStars.map((i) => {
-    return <IoIosStar className="stars-yellow" />;
+    return <IoIosStar />;
   });
   return rendredStars;
 }

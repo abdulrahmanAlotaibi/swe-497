@@ -1,32 +1,57 @@
 $primary-color: #002333;
-$secondary-color: #40D5A1;
+$secondary-color: #40d5a1;
 $white: #f4f4f4;
 @import "App.scss";
 
 .page-header {
   min-height: 20vh;
   padding-top: 7rem;
+  font-size:1.4rem;
   background-color: $primary-color;
 }
-
+.logo {
+  text-decoration: none;
+  color: #fefefe;
+  font-size: 3rem;
+}
 .nav {
   color: #fefefe;
-  width: 100%;
-  margin: 0 auto;
+  width: 100wh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 100%;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 
-  @include respond(tablet-l) {
+  @include respond(laptop) {
     display: none;
   }
-  &__list {
-    display: inline-flex;
+
+  & > * {
+    display: flex;
+    list-style:none;
     align-items: center;
-    list-style-type: none;
-    justify-content: flex-end;
+  }
+  &__start {
+    flex-basis: 20rem;
+    & > * {
+      margin-right:4.5rem;
+    }
+  }
+  &__middle {
+    flex: 1;
+        justify-content: center; 
+        text-align:center;
+        margin:0 4rem;
+    & > * {
+      width:100% !important;
+      display:inline-block;
+    }
+  }
+
+  &__end {
+    flex-basis: 45rem;
+    justify-content: flex-end; 
+
   }
   &__item {
     color: #fefefe;
@@ -40,4 +65,30 @@ $white: #f4f4f4;
       }
     }
   }
+
+ 
 }
+ .explore-list {
+  background-color: $secondary-color;
+    color: $primary-color;
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    cursor:pointer;
+    &:visited,
+    &:link,
+    &:focus {
+      color: $primary-color;
+    }
+
+    display:flex;
+    align-items:center;
+      justify-content:space-between;
+    &__icon {      
+      margin-left:1rem;
+      margin-top:.3rem;
+      font-size:1.6rem;
+    }
+  }

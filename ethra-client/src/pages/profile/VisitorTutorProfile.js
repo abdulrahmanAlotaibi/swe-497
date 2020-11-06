@@ -4,7 +4,7 @@ import "./VisitorTutorProfile.scss";
 import "components/course/Course.scss";
 import { getUrlId } from "util/helpers";
 // import "/Course.scss"
-import Course from "components/course/Course"
+import Course from "components/course"
 export default class VisitorTutorProfile extends Component {
   constructor(props) {
     super(props);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Course from "components/course/Course";
+import Course from "components/course";
 import "./Search.scss";
 import "components/course/Course.scss";
 import LoadingSpinner from "components/loadingIcon/LoadingSpinner";

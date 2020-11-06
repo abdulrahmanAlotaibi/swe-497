@@ -1,0 +1,50 @@
+.course {
+  text-decoration: none;
+  width: 28rem;
+  cursor: pointer;
+  background-color: #fff;
+  border-radius: 0 0.9rem 0.9rem 0.9rem;
+  box-shadow: 0 0.8rem 0.6rem 0 rgba(63, 63, 63, 0.2);
+  text-align: left;
+  text-decoration: none;
+  color: #002333;
+  transition: 0.3s box-shadow ease-in-out;
+  &:hover {
+    box-shadow: 0 1.2rem 2rem 0.2rem rgba(63, 63, 63, 0.2);
+  }
+
+  &__img {
+    width: 100%;
+    display: inline-block;
+    border-radius: 0.9rem 0.9rem 0 0rem;
+  }
+
+  &__info {
+    padding: 0 1rem 1rem 1rem;
+    & > * {
+      margin: 0.1rem 0;
+    }
+  }
+
+  &__name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+  }
+
+  &__author {
+    display: block;
+    color: grey;
+    font-size: 1.4rem;
+  }
+  &__rating {
+    color: #dbc026;
+  }
+
+  &__price {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+}

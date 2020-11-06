@@ -1,7 +1,6 @@
 import React, { Component, useContext, useeffect, useReducer } from "react";
 import "components/form/Form.scss";
 import { Redirect } from "react-router-dom";
-import { MyContext } from "App";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -13,9 +12,8 @@ export default function form() {
     evt.preventDefault();
   };
 
-  return (
-    <MyContext.Consumer>
-      {(context) => (
+  return ( 
+   
         <section className="form-section">
           <h1 className="form-section__heading">Sign In</h1>
           <div className="form-container">
@@ -56,7 +54,6 @@ export default function form() {
             </form>
           </div>
         </section>
-      )}
-    </MyContext.Consumer>
-  );
+     
+  )
 }
