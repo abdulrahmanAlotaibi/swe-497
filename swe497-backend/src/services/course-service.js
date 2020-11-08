@@ -9,7 +9,7 @@ const { APIError } = require("../middlewares/error-handler");
  * TODO: Add pagination
  */
 
-exports.getCourses = async (skip = 5, limit = 15) => {
+exports.getAllCourses = async (skip = 5, limit = 15) => {
   try {
     const courses = await Course.find({})
       .skip(skip)
@@ -58,9 +58,13 @@ exports.updateCourse = async (courseId, properties) => {
 
 exports.deleteCourse = async (courseId) => {
   try {
-    return await Course.deleteOne({ _id: courseId })
+    const deletedCourse = await Course.deleteOne({ _id: courseId })
       .lean()
       .exec();
+
+    if (deletedCourse.n === 0) throw APIError.notFound();
+
+    return deletedCourse;
   } catch (err) {
     console.error(err);
     throw new APIError();
