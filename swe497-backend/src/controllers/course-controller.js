@@ -5,7 +5,7 @@ exports.getAllCourses = async (req, res, next) => {
 
   const limit = parseInt(req.params.limit);
 
-  const courses = await courseService.getCourses(skip, limit); // TODO: Add filters arg
+  const courses = await courseService.getAllCourses(skip, limit); // TODO: Add filters arg
 
   res.status(200).json({
     status: "success",

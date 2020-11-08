@@ -18,6 +18,22 @@ tutorRouter.post(
 // @access  Public
 tutorRouter.get(
   "/:tutorId/courses",
+  catchErrors(tutorController.getTutorAllCourses)
+);
+
+// @route   GET api/v1/tutors/:id/courses
+// @desc    get all tutor courses
+// @access  Public
+tutorRouter.get(
+  "/:tutorId/courses",
+  catchErrors(tutorController.createTutorCourse)
+);
+
+// @route   GET api/v1/tutors/:id/courses
+// @desc    get all tutor courses
+// @access  Public
+tutorRouter.get(
+  "/:tutorId/courses",
   catchErrors(tutorController.createTutorCourse)
 );
 

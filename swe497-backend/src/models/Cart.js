@@ -5,7 +5,7 @@ const CartSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Student",
   },
-  courses: [
+  items: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Course",

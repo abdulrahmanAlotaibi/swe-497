@@ -3,13 +3,13 @@ import Search from "components/search";
 import { Link } from "react-router-dom";
 // import axios from "axios";
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';import "./Nav.scss";
+import Logo from "components/logo"
+
 function Nav() {
   return (
     <nav className="nav">
       <ul className="nav__start">
-        <Link to="/" className="logo logo--nav">
-          SWE497
-        </Link>
+        <Logo/>
         <ul className="explore-list"><span>Explore</span>
         <div><KeyboardArrowDownIcon className="explore-list__icon"/></div>
         </ul>
