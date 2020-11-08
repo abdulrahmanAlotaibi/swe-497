@@ -1,23 +1,36 @@
 const express = require("express");
-const authController = require("../controllers/auth");
-const studentController = require("../controllers/student");
-const courseController = require("../controllers/course");
+const studentController = require("../controllers/student-controller");
 
-const studentRouter = express.Router();
+const router = express.Router();
 
-studentRouter.route("/").get(studentController.getAllStudents);
+// @route    GET api/v1/students/:id
+// @desc     Get a student
+// @access   Public
+router.get("/:id", studentController.getStudent);
 
-studentRouter.route("/:id/update-me").patch(authController.updateStudentProfile);
+// @route    GET api/v1/students/:id/courses/
+// @desc     Get all student courses
+// @access   Public
+router.get("/:id", studentController.getAllStudentCourses);
 
-studentRouter
-  .route("/courses")
-  .get(
-    authController.protect("student"),
-    courseController.getAllCourses("student")
-  );
-studentRouter.route("/signup").post(authController.signup);
-studentRouter.route("/login").post(authController.login);
-studentRouter.route("/:id").get(studentController.getStudent);
+// @route    GET api/v1/students/:id/courses/
+// @desc     Enroll a student in a course
+// @access   Private
+router.post("/:id", studentController.enrollInCourse);
+
+// @route    GET api/v1/students/:id/courses/
+// @desc     Enroll a student in a course
+// @access   Private
+router.patch("/:id/courses", studentController.leaveCourse);
+
+// @route    POST api/v1/students/:id/cart/
+// @desc     Add course to favourite
+// @access   Private
+router.post("/:id/cart", studentController.favouriteCourse);
+
+// @route    GET api/v1/students/:id/courses/
+// @desc     Add course to favourite
+// @access   Private
+router.patch("/:id/cart", studentController.removeFavouriteCourse);
 
 module.exports = studentRouter;
-

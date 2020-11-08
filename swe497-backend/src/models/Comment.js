@@ -11,7 +11,7 @@ const commentSchema = new mongoose.Schema(
       type: String,
       required: [true, "Comment must have an author"],
     },
-    text: {
+    details: {
       type: String,
       required: [true, "Comment must have a text"],
     },
@@ -23,7 +23,6 @@ const commentSchema = new mongoose.Schema(
     video: {
       type: mongoose.Schema.Types.ObjectId,
       path: "Video",
-      required: [true, "Comment must have a video reference"],
     },
     replies: [
       {

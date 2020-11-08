@@ -23,6 +23,5 @@ adminRouter
 
 adminRouter.route("/ban/tutors/:id").patch(adminController.toggleTutorBannation);
 
-// adminRouter.route("/statistics").get(adminRouter.getStatistic);
 
 module.exports = adminRouter;
