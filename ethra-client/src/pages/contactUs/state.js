@@ -1,6 +1,7 @@
 export const EMAIL_IN_PROGRESS = "EMAIL_IN_PROGRESS";
 export const EMAIL_SUCCESS = "EMAIL_SUCCESS";
 export const EMAIL_FAIL = "EMAIL_FAIL";
+export const UPDATE_INPUT = 'UPDATE_INPUT'
 
 export const contactUsState = {
   email: "",

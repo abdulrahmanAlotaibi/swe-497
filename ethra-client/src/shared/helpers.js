@@ -34,3 +34,9 @@ export function getUrlId() {
   const id = url[4];
   return id;
 }
+
+export function renderItems(Component, items, handlers) {
+  return items.map((item) => (
+    <Component key={item._id} {...item} {...handlers} />
+  ));
+}

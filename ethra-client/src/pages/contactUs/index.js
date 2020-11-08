@@ -1,9 +1,13 @@
 import React, { Component, useReducer } from "react";
 import "components/form/Form.scss";
-import "./ContactUs.scss";
+import "./index.scss";
 import MessageSuccess from "./MessageSuccess";
 import { handleFormChange, UPDATE_INPUT } from "../../shared/common";
-import { EMAIL_IN_PROGRESS } from "./util";
+import { EMAIL_IN_PROGRESS, contactUsReducer, contactUsState } from "./state";
+import Input from "../../components/input/Input";
+import uuid from "uuid";
+import { inputs } from "./pageLabels";
+import {renderItems} from '../../shared/helpers'
 
 export default function ContactUs(props) {
   const [state, dispatch] = useReducer(contactUsState, contactUsReducer);
@@ -15,6 +19,16 @@ export default function ContactUs(props) {
     });
     // TODO: send the request
   }
+
+  const handleFormChange = (key, value) => {
+    dispatch({
+      type: UPDATE_INPUT,
+      payload: {
+        key,
+        value,
+      },
+    });
+  };
   if (isSubmitted) {
     return <MessageSuccess />;
   }
@@ -24,7 +38,16 @@ export default function ContactUs(props) {
       <h1 className="form-section__heading">Contact Us</h1>
       <div className="form-container">
         <form className="form" onSubmit={handleSubmit}>
-          <label className="form__label" htmlFor="email">
+          {renderItems(Input, inputs, { handleFormChange })}
+          <button className="form__submit">Send</button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+/*
+<label className="form__label" htmlFor="email">
             Email:
           </label>
           <input
@@ -60,9 +83,5 @@ export default function ContactUs(props) {
             value={message}
             onChange={handleFormChange}
           ></textarea>
-          <button className="form__submit">Send</button>
-        </form>
-      </div>
-    </section>
-  );
-}
+
+*/
