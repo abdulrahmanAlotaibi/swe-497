@@ -11,6 +11,7 @@ import Footer from "components/footer/Footer";
 
 import "./App.scss";
 import Search from "pages/search/Search";
+import ContactUs from "pages/contactUs";
 
 const theme = createMuiTheme({
   palette: {
@@ -30,7 +31,6 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <Header />
-
         <Route exact path="/">
           <Home />
         </Route>
@@ -42,6 +42,9 @@ function App() {
         </Route>
         <Route exact path="/search">
           <Search />
+        </Route>
+        <Route exact path="/contact-us">
+          <ContactUs />
         </Route>
         <Footer />
       </>
