@@ -1,7 +1,21 @@
 const { APIError } = require("../middlewares/error-handler");
 const CourseService = require("./course-service");
 const Student = require("../models/Student");
-const Cart = require("../models/Cart");
+
+exports.getAllStudents = async (skip = 5, limit = 15) => {
+  try {
+    const students = await Student.find({})
+      .skip(skip)
+      .limit(limit)
+      .lean()
+      .exec();
+
+    return students;
+  } catch (err) {
+    console.error(err);
+    throw new APIError();
+  }
+};
 
 exports.getStudent = async (studentId) => {
   try {
@@ -19,7 +33,9 @@ exports.getAllStudentCourses = async (studentId) => {
   try {
     const studentCourses = await Student.findById(studentId)
       .select("courses")
-      .populate("courses");
+      .populate("courses")
+      .lean()
+      .exec();
 
     if (!studentCourses) throw APIError.notFound();
 
@@ -62,4 +78,3 @@ exports.leaveCourse = async (studentId, courseId) => {
     throw APIError.invalidInputs("Invalid student id");
   }
 };
-

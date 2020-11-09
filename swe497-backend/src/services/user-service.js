@@ -5,6 +5,7 @@ const { APIError } = require("../middlewares/error-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const Cart = require("../models/Cart");
 
 exports.signIn = async (email, password, role) => {
   try {
@@ -67,6 +68,10 @@ exports.signUp = async (newAccount) => {
 
     if (newAccount.role === "student") {
       newUser = await Student.create(newAccount);
+
+      await Cart.create({
+        customerId: newUser._id,
+      });
     } else if (newAccount.role === "tutor") {
       newUser = await Tutor.create(newAccount);
     }

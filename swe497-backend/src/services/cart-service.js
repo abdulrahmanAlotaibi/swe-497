@@ -1,18 +1,14 @@
 const Cart = require("../models/Cart");
 
-exports.getCart = async (customerId, itemId) => {
-  try {
-    const updatedCart = await Cart.update(
-      { customerId: customerId },
-      {
-        $push: {
-          items: itemId,
-        },
-      }
-    );
-    if (!updatedCart) throw APIError.notFound();
+const Course = require("../models/Course");
 
-    return updatedCart;
+exports.getCart = async (customerId) => {
+  try {
+    const cart = await Cart.findById(customerId).populate("items");
+
+    if (!cart) throw APIError.notFound();
+
+    return cart;
   } catch (err) {
     throw APIError.invalidInputs("Invalid student id");
   }
@@ -20,6 +16,7 @@ exports.getCart = async (customerId, itemId) => {
 
 exports.addToCart = async (customerId, itemId) => {
   try {
+    const item = await Course.findById(itemId);
     const updatedCart = await Cart.update(
       { customerId: customerId },
       {
@@ -28,7 +25,10 @@ exports.addToCart = async (customerId, itemId) => {
         },
       }
     );
+
     if (!updatedCart) throw APIError.notFound();
+
+    updatedCart.total -= item.price;
 
     return updatedCart;
   } catch (err) {
@@ -46,6 +46,10 @@ exports.removeFromCart = async (customerId, itemId) => {
         },
       }
     );
+
+    if (!updatedCart) throw APIError.notFound();
+
+    updatedCart.total -= item.price;
 
     return updatedCart;
   } catch (err) {

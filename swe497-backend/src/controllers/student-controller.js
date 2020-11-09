@@ -1,5 +1,19 @@
 const StudentService = require("../services/student-service");
 
+exports.getAllStudents = async (req, res) => {
+  const skip = parseInt(req.params.skip);
+  const limit = parseInt(req.params.limit);
+
+  const students = await StudentService.getAllStudents(skip, limit);
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      students,
+    },
+  });
+};
+
 exports.getStudent = async (req, res) => {
   const studentId = req.params.id;
 
@@ -14,7 +28,7 @@ exports.getStudent = async (req, res) => {
 };
 
 exports.getAllStudentCourses = async (req, res) => {
-  const studentId = req.params.studentId;
+  const studentId = req.params.id;
 
   const courses = await StudentService.getAllStudentCourses(studentId);
 

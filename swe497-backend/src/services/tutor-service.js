@@ -2,6 +2,21 @@ const { APIError } = require("../middlewares/error-handler");
 const Tutor = require("../models/Tutor");
 const CourseService = require("./course-service");
 
+exports.getAllTutors = async (skip = 5, limit = 15) => {
+  try {
+    const tutors = await Tutor.find({})
+      .skip(skip)
+      .limit(limit)
+      .lean()
+      .exec();
+
+    return tutors;
+  } catch (err) {
+    console.error(err);
+    throw new APIError();
+  }
+};
+
 exports.getTutorAllCourses = async (tutorId) => {
   try {
     const tutorCourses = await Tutor.findById(tutorId)
@@ -9,7 +24,7 @@ exports.getTutorAllCourses = async (tutorId) => {
       .populate("courses")
       .lean()
       .exec();
-    return tutorCourses;
+    return tutorCourses.courses;
   } catch (err) {
     throw APIError.invalidInputs("Invalid tutor id");
   }
@@ -17,7 +32,10 @@ exports.getTutorAllCourses = async (tutorId) => {
 
 exports.createTutorCourse = async (tutorId, courseData) => {
   try {
-    const newCourse = await CourseService.createCourse(courseData);
+    const newCourse = await CourseService.createCourse({
+      ...courseData,
+      author: tutorId,
+    });
     console.log(newCourse._id);
 
     const updatedTutor = await Tutor.updateOne(
@@ -48,4 +66,27 @@ exports.deleteTutorCourse = async (tutorId, courseId) => {
   } catch (err) {
     throw APIError.invalidInputs("Invalid tutor id");
   }
+};
+
+exports.updateTutor = async (tutorId, properties) => {
+  try {
+    return await Tutor.updateOne({ _id: tutorId }, { $set: properties })
+      .lean()
+      .exec();
+  } catch (err) {
+    console.error(err);
+    throw new APIError();
+  }
+};
+
+exports.getTutor = async (tutorId) => {
+  const tutor = await Tutor.findById(tutorId)
+    .lean()
+    .exec();
+
+  if (!tutor) {
+    throw APIError.invalidInputs();
+  }
+
+  return tutor;
 };

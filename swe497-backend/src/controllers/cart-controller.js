@@ -18,7 +18,7 @@ exports.addToCart = async (req, res) => {
 
   const itemId = req.body.itemId;
 
-  const updatedCart = await CartService.favouriteCourse(cartId, itemId);
+  const updatedCart = await CartService.addToCart(cartId, itemId);
 
   res.status(200).json({
     status: "success",
@@ -33,7 +33,7 @@ exports.removeFromCart = async (req, res) => {
 
   const itemId = req.body.itemId;
 
-  const updatedCart = await CartService.favouriteCourse(cartId, itemId);
+  const updatedCart = await CartService.removeFromCart(cartId, itemId);
 
   res.status(200).json({
     status: "success",

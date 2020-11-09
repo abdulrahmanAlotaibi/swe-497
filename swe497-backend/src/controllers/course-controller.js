@@ -9,7 +9,7 @@ exports.getAllCourses = async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    data: courses,
+    data: { courses },
   });
 };
 
@@ -20,7 +20,7 @@ exports.getCourse = async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    data: course,
+    data: { course },
   });
 };
 
@@ -39,7 +39,6 @@ exports.createCourse = async (req, res, next) => {
     tags,
   } = req.body);
 
-
   const course = await courseService.createCourse(courseData);
 
   res.status(200).json({
@@ -54,11 +53,11 @@ exports.updateCourse = async (req, res, next) => {
   // Course properties to be updated
   const properties = req.body.properties;
 
-  const updatedCourse = courseService.updateCourse(courseId, properties);
+  const updatedCourse = await courseService.updateCourse(courseId, properties);
 
   res.status(200).json({
     status: "success",
-    data: updatedCourse,
+    data: { updatedCourse },
   });
 };
 
@@ -67,6 +66,5 @@ exports.deleteCourse = async (req, res, next) => {
 
   const deletedCourse = await courseService.deleteCourse(courseId);
 
-  res.status(200).json({ status: "success", data: deletedCourse });
+  res.status(200).json({ status: "success", data: { deletedCourse } });
 };
-

@@ -9,7 +9,7 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: [true, "Course must have a description"],
   },
-  tutor: {
+  author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Tutor",
   },
@@ -23,8 +23,7 @@ const CourseSchema = new mongoose.Schema({
     },
   ],
   price: {
-    type: Number,
-    required: [true, "Course must have a price"],
+    amount: { type: Number, required: [true, "Course must have an amount"] },
     currency: {
       type: String,
       default: "SR",
