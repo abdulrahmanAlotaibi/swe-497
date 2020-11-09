@@ -45,13 +45,11 @@ exports.enrollInCourse = async (req, res) => {
 
   const courseId = req.params.courseId;
 
-  const courses = await StudentService.enrollInCourse(studentId, courseId);
+  const course = await StudentService.enrollInCourse(studentId, courseId);
 
   res.status(200).json({
     status: "success",
-    data: {
-      courses,
-    },
+    message: "You have been enrolled",
   });
 };
 
@@ -64,8 +62,6 @@ exports.leaveCourse = async (req, res) => {
 
   res.status(200).json({
     status: "success",
-    data: {
-      updatedStudent,
-    },
+    message: "You left the course",
   });
 };

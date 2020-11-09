@@ -69,9 +69,13 @@ exports.signUp = async (newAccount) => {
     if (newAccount.role === "student") {
       newUser = await Student.create(newAccount);
 
-      await Cart.create({
+      const cart = await Cart.create({
         customerId: newUser._id,
       });
+
+      newUser.cart = cart;
+
+      newUser.save();
     } else if (newAccount.role === "tutor") {
       newUser = await Tutor.create(newAccount);
     }

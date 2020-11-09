@@ -15,10 +15,6 @@ export const studentSignupState = {
   email: "",
   password: "",
   confirmPassword: "",
-  phoneNumber: "",
-  qualifications: "",
-  country: "",
-  city: "",
 };
 
 export const tutorSignupState = {

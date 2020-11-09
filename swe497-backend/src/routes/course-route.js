@@ -8,30 +8,26 @@ const router = express.Router();
 // @route    GET api/v1/courses
 // @desc     Get all courses
 // @access   Public
-router.get("/", coursesController.getAllCourses);
-
+router.get("/", catchErrors(coursesController.getAllCourses));
 
 // @route    POST api/v1/courses
 // @desc     Get a course
 // @access   Private
-router.get("/:id", coursesController.getCourse);
-
+router.get("/:id", catchErrors(coursesController.getCourse));
 
 // @route    POST api/v1/courses
 // @desc     Create a course
 // @access   Private
-router.post("/", coursesController.createCourse);
+router.post("/", catchErrors(coursesController.createCourse));
 
 // @route    patch api/v1/courses/:id
 // @desc     Update a course
 // @access   Private
-router.patch("/:id", coursesController.updateCourse);
-
+router.patch("/:id", catchErrors(coursesController.updateCourse));
 
 // @route    DELETE api/v1/courses/:id
 // @desc     delete course
 // @access   Private
-router.delete("/:id", coursesController.deleteCourse);
-
+router.delete("/:id", catchErrors(coursesController.deleteCourse));
 
 module.exports = router;

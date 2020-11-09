@@ -42,7 +42,7 @@ function StudentSignup({ createAccount }) {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <TextField
-        type="email"
+        type="text"
         label="Full Name"
         className="form__input"
         id="name"

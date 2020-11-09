@@ -43,7 +43,7 @@ exports.createCourse = async (req, res, next) => {
 
   res.status(200).json({
     status: "success",
-    data: course,
+    data: { course },
   });
 };
 

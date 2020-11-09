@@ -43,7 +43,7 @@ exports.createTutorCourse = async (tutorId, courseData) => {
       { $push: { courses: newCourse._id } }
     );
 
-    return { updatedTutor, newCourse };
+    return newCourse;
   } catch (err) {
     throw APIError.invalidInputs("Invalid tutor id");
   }

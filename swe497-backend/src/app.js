@@ -29,6 +29,7 @@ app.use("/api/v1/users", require("./routes/user-route"));
 app.use("/api/v1/courses", require("./routes/course-route"));
 app.use("/api/v1/tutors", require("./routes/tutor-route"));
 app.use("/api/v1/students", require("./routes/student-route"));
+app.use("/api/v1/carts", require("./routes/cart-route"));
 
 // app.use("/api/v1/")
 app.use("/", (req, res) => {
