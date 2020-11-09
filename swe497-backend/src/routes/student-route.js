@@ -3,6 +3,8 @@ const studentController = require("../controllers/student-controller");
 const validationChecker = require("../middlewares/validationChecker");
 const { catchErrors } = require("../middlewares/error-handler");
 const validator = require("../middlewares/validator");
+const auth = require("../middlewares/auth");
+const permission = require("../middlewares/permissions");
 
 const router = express.Router();
 
@@ -21,11 +23,13 @@ router.get("/:id", catchErrors(studentController.getStudent));
 // @access   Public
 router.get("/:id/courses", catchErrors(studentController.getAllStudentCourses));
 
-// @route    GET api/v1/students/:id/courses/
+// @route    POST api/v1/students/:id/courses/
 // @desc     Enroll a student in a course
 // @access   Private
 router.post(
   "/:studentId/courses/:courseId",
+  auth,
+  permission("student", "update:own"),
   catchErrors(studentController.enrollInCourse)
 );
 
@@ -34,6 +38,8 @@ router.post(
 // @access   Private
 router.delete(
   "/:studentId/courses/:courseId",
+  auth,
+  permission("student","update:own"),
   catchErrors(studentController.leaveCourse)
 );
 

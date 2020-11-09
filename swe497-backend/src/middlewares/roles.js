@@ -23,7 +23,6 @@ let grantsObject = {
       "delete:own": ["*"],
     },
     tutor: {
-      "create:own": ["*"],
       "read:own": ["*"],
       "update:own": ["*"],
       "delete:own": ["*"],
@@ -31,10 +30,12 @@ let grantsObject = {
   },
   student: {
     student: {
-      "update:own": ["*"],
       "read:own": ["*"],
       "update:own": ["*"],
-      "delete:own": ["*"],
+    },
+    cart: {
+      "read:own": ["*"],
+      "update:own": ["*"],
     },
   },
 };

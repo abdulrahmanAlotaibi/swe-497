@@ -3,7 +3,8 @@ const tutorController = require("../controllers/tutor-controller");
 const validationChecker = require("../middlewares/validationChecker");
 const { catchErrors } = require("../middlewares/error-handler");
 const validator = require("../middlewares/validator");
-
+const auth = require("../middlewares/auth");
+const permission = require("../middlewares/permissions");
 const router = express.Router();
 
 // @route   GET api/v1/tutors
@@ -12,31 +13,30 @@ const router = express.Router();
 router.get("/", catchErrors(tutorController.getAllTutors));
 
 // @route   POST api/v1/tutors/:id/courses
-// @desc    create a tutor course
-// @access  Public
+// @desc    Create a tutor course
+// @access  Private
 router.post(
   "/:tutorId/courses",
+  auth,
+  permission("course", "create:own"),
   catchErrors(tutorController.createTutorCourse)
 );
 
 // @route   GET api/v1/tutors/:id/courses
-// @desc    get all tutor courses
+// @desc    Get all tutor courses
 // @access  Public
 router.get(
   "/:tutorId/courses",
   catchErrors(tutorController.getTutorAllCourses)
 );
 
-// @route   GET api/v1/tutors/:id/courses
-// @desc    get all tutor courses
-// @access  Public
-router.get("/:tutorId/courses", catchErrors(tutorController.createTutorCourse));
-
-// @route   GET api/v1/tutors/:id/courses/:courseId
-// @desc    get all tutor courses
-// @access  Public
+// @route   DELETE api/v1/tutors/:id/courses/:courseId
+// @desc    Delete tutor course
+// @access  Private
 router.delete(
   "/:tutorId/courses/:courseId",
+  auth,
+  permission("course", "delete:own"),
   catchErrors(tutorController.deleteTutorCourse)
 );
 
@@ -45,9 +45,14 @@ router.delete(
 // @access  Public
 router.get("/:id", catchErrors(tutorController.getTutor));
 
-// @route   GET api/v1/tutors/:id
-// @desc    get tutor
+// @route   PATCH api/v1/tutors/:id
+// @desc    Update tutor
 // @access  Private
-router.patch("/:id", catchErrors(tutorController.updateTutor));
+router.patch(
+  "/:id",
+  auth,
+  permission("tutor", "update:own"),
+  catchErrors(tutorController.updateTutor)
+);
 
 module.exports = router;
