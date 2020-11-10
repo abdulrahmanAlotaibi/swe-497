@@ -1,19 +1,16 @@
-const nodemailer = require('nodemailer');
+const events = require("events");
+const eventEmitter = new events.EventEmitter();
+const EmailService = require("../services/email-service");
 
-module.exports = async options => {
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.mailtrap.io',
-    port: 25,
-    auth: {
-      user: '847e42f13113a1',
-      pass: '0c1b3808febe08'
-    }
-  });
+eventEmitter.on(
+  "user_singup",
+  async (recipientEmail, name) => {
+    const title = `Welcome ${name}!`;
+    const message =
+      "We are delighted to have you with us, We hope you enjoy our serivce!";
 
-  transporter.sendMail({
-    from: options.from,
-    to: options.email,
-    subject: options.subject,
-    text: options.message
-  });
-};
+    await EmailService.sendEmail(recipientEmail, title, message);
+  }
+);
+
+module.exports = emailEvent = eventEmitter;

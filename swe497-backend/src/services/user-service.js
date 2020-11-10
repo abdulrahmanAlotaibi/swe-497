@@ -6,6 +6,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 const Cart = require("../models/Cart");
+const { EventEmitter } = require("events");
+const emailEvent = require("../subscribers/email-listener");
 
 exports.signIn = async (email, password, role) => {
   try {
@@ -91,6 +93,9 @@ exports.signUp = async (newAccount) => {
     const token = jwt.sign(payload, config.get("jwtSecret"), {
       expiresIn: 360000,
     });
+
+    // Sending email notification to the new user
+    emailEvent.emit("user_singup", newUser.email, newUser.name);
 
     return token;
   } catch (err) {
