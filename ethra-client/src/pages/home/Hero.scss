@@ -1,8 +1,5 @@
-@import "App.scss";
-$primary-color: #002333;
-$secondary-color: #40D5A1;
-$white: #f4f4f4;
 
+@import "shared/styles/media-queries.scss";
 .hero-section {
   min-height: 100vh;
   background-color: #002333;
@@ -51,7 +48,7 @@ $white: #f4f4f4;
 }
 .heading-container {
   text-align: left;
-  color: #fefefe;
+  color: var(--color-white);
   padding: 1rem;
   margin-left: 10rem;
   display: block;
@@ -75,7 +72,7 @@ $white: #f4f4f4;
 
       display: inline-block;
       height: 0.4rem;
-      background-color: $secondary-color;
+      background-color: var(--color-secondary);
       width: 14.5%;
       animation: moveInBottom 1s ease-in-out;
       @include respond(laptop) {

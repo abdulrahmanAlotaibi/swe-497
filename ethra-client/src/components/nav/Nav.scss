@@ -1,23 +1,21 @@
-$primary-color: #002333;
-$secondary-color: #40d5a1;
-$white: #f4f4f4;
-@import "App.scss";
+@import "shared/styles/media-queries.scss";
+
 
 .page-header {
   min-height: 20vh;
   padding-top: 7rem;
   font-size:1.4rem;
-  background-color: $primary-color;
+  background-color: var(--color-primary);
 }
 
 .nav {
-  color: #fefefe;
+  color: var(--color-white);
   width: 100wh;
   display: flex;
   align-items: center;
   height: 100%;
   font-size: 1.4rem;
-
+  
   @include respond(laptop) {
     display: none;
   }
@@ -52,6 +50,10 @@ $white: #f4f4f4;
   &__item {
     color: #fefefe;
     margin-right: 4rem;
+    &--search {
+      font-size:2.5rem;
+      margin-top:.6rem;
+    }
     & > * {
       text-decoration: none;
       &:visited,
@@ -62,11 +64,12 @@ $white: #f4f4f4;
     }
   }
 
+  
  
 }
  .explore-list {
-  background-color: $secondary-color;
-    color: $primary-color;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
     display: inline-block;
     width: 100%;
     padding: 1rem 2.5rem;
@@ -76,7 +79,7 @@ $white: #f4f4f4;
     &:visited,
     &:link,
     &:focus {
-      color: $primary-color;
+      color: var(--color-primary);
     }
 
     display:flex;

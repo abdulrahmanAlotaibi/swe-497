@@ -1,79 +1,7 @@
-// MEDIA QUERY MANAGER
-/*
-$breakpoint arguement choices:
-- mobile-s
-- mobile-m
-- mobile-l
-- tablet
-- laptop-m
-- laptop-l 
-- desktop
-- desktop-l
-@DESC 1em = 16px
-*/
+@import "shared/styles/media-queries.scss";
+@import "shared/styles/colors.scss";
 
-@mixin respond($breakpoint) {
-  @if $breakpoint == mobile-s {
-    @media only screen and (max-width: 21em) {
-      @content;
-    }
-  } // 336px
-
-  @if $breakpoint == mobile-m {
-    @media only screen and (max-width: 23.56em) {
-      @content;
-    }
-  } // 377px
-
-  @if $breakpoint == mobile-l {
-    @media only screen and (max-width: 31.57em) {
-      @content;
-    }
-  } // 505px
-
-  @if $breakpoint == tablet-s {
-    @media only screen and (max-width: 45em) {
-      @content;
-    } //720px
-  }
-  @if $breakpoint == tablet-m {
-    @media only screen and (max-width: 55.625em) {
-      @content;
-    } //890px
-  }
-  @if $breakpoint == tablet-l {
-    @media only screen and (max-width: 57.25em) {
-      @content;
-    } //900px
-  }
-
-  @if $breakpoint == laptop {
-    @media only screen and (max-width: 69em) {
-      @content;
-    }
-  } // 1024px
-
-  @if $breakpoint == laptop-m {
-    @media only screen and (max-width: 89em) {
-      @content;
-    }
-  } // 1400px
-
-  @if $breakpoint == laptop-l {
-    @media only screen and (max-width: 105em) {
-      @content;
-    }
-  } // 1680px
-
-  @if $breakpoint == desktop-l {
-    @media only screen and (min-width: 120em) {
-      @content;
-    }
-  } // 1920px
-}
-
-
-// ================ ============== Global Reset
+// Global Reset
 *,
 *::before,
 *::after {
@@ -98,12 +26,14 @@ html {
     font-size: 38%;
   }
 }
+
 body {
   box-sizing: border-box;
   font-size: 1.8rem;
-  background-color: #f4f4f4;
-  color: #002333;
+  color: var(--color-primary);
+  background-color: var(--color-white);
 }
+
 main {
   height: 100vh;
 }

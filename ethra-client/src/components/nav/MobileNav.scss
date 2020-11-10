@@ -1,9 +1,6 @@
-@import "App.scss";
 
-.nav-mobile {
+@import "shared/styles/media-queries.scss";
 
-
-}
 nav {
   display:flex;
   justify-content:space-between;
