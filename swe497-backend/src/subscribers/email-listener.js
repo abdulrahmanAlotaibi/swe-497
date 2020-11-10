@@ -14,4 +14,6 @@ eventEmitter.on("user_singup", async (recipientEmail, name) => {
   await EmailService.sendEmail(senderEmail, recipientEmail, title, message);
 });
 
+// TODO: Add news latter subscription
+
 module.exports = emailEvent = eventEmitter;

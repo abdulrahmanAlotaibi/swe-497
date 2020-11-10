@@ -21,13 +21,7 @@ exports.sendEmail = async (senderEmail, recipientEmail, title, message) => {
     text: message, // Plain text body
   };
 
-  transport.sendMail(emailMessage, function(err, info) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(info);
-    }
-  });
+  return await transport.sendMail(emailMessage);
 };
 
 exports.contactUs = async (senderEmail, title, message) => {
