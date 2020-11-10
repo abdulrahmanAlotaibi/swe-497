@@ -1,17 +1,21 @@
 const nodemailer = require("nodemailer");
+const config = require("config");
+const { COSTUMER_SERIVCE_EMAIL } = require("../util/constants");
 
-exports.sendEmail = async (recipientEmail, title, message) => {
+exports.sendEmail = async (senderEmail, recipientEmail, title, message) => {
+  const emailCredentials = config.get("email");
+    console.log(emailCredentials)
   const transport = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: emailCredentials.host,
+    port: emailCredentials.port,
     auth: {
-      user: "7840cb0e94669e",
-      pass: "385b771c8ab280",
+      user: emailCredentials.user,
+      pass: emailCredentials.password,
     },
   });
 
   const emailMessage = {
-    from: "costumer-service@swe497.com", // Sender address
+    from: senderEmail, // Sender address
     to: recipientEmail, // List of recipients
     subject: title, // Subject line
     text: message, // Plain text body
@@ -26,4 +30,10 @@ exports.sendEmail = async (recipientEmail, title, message) => {
   });
 };
 
-// TODO: html template
+exports.contactUs = async (senderEmail, title, message) => {
+  const recipientEmail = COSTUMER_SERIVCE_EMAIL;
+
+  const email = await this.sendEmail(senderEmail, recipientEmail, title, message);
+
+  return email;
+};

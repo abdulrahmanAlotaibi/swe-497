@@ -1,5 +1,11 @@
 {
   "databaseURI": "mongodb+srv://SWE497:r2EZjzEGpFjFOuRD@cluster0-fuyka.mongodb.net/SWE497?retryWrites=true&w=majority",
   "databasePassword": "r2EZjzEGpFjFOuRD",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "email": {
+    "host": "smtp.mailtrap.io",
+    "port": 2525,
+    "user": "7840cb0e94669e",
+    "password": "385b771c8ab280"
+  }
 }
